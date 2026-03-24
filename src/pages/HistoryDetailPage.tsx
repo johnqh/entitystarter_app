@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useAuthStatus } from '@sudobility/auth-components';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
 import ScreenContainer from '../components/layout/ScreenContainer';
@@ -13,16 +12,15 @@ import { formatDateTime } from '../utils/formatDateTime';
  * and creation timestamp, with the ability to delete the record.
  */
 export default function HistoryDetailPage() {
-  const { historyId } = useParams<{ historyId: string }>();
+  const { entitySlug, historyId } = useParams<{ entitySlug: string; historyId: string }>();
   const { t, i18n } = useTranslation('common');
-  const { user } = useAuthStatus();
   const { networkClient, baseUrl, token } = useApi();
   const { navigate } = useLocalizedNavigate();
 
   const { histories, deleteHistory, isLoading } = useHistoriesManager({
     baseUrl,
     networkClient,
-    userId: user?.uid ?? null,
+    entitySlug: entitySlug ?? null,
     token: token ?? null,
   });
 
@@ -61,7 +59,7 @@ export default function HistoryDetailPage() {
     try {
       setIsDeleting(true);
       await deleteHistory(history.id);
-      navigate('/histories');
+      navigate(`/dashboard/${entitySlug}/histories`);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to delete history entry.';
       setDeleteError(message);
@@ -113,7 +111,7 @@ export default function HistoryDetailPage() {
           </div>
           <div className="mt-6 flex gap-4">
             <button
-              onClick={() => navigate('/histories')}
+              onClick={() => navigate(`/dashboard/${entitySlug}/histories`)}
               className="px-4 py-2 border border-theme-border rounded-lg text-theme-text-primary hover:bg-theme-hover-bg text-sm"
             >
               {t('common.back')}

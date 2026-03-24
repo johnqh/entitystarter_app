@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStatus } from '@sudobility/auth-components';
 import { useApi } from '@sudobility/building_blocks/firebase';
@@ -12,6 +13,7 @@ import { formatDateTime } from '../utils/formatDateTime';
  * and a list of individual history records. Requires authentication.
  */
 export default function HistoriesPage() {
+  const { entitySlug } = useParams<{ entitySlug: string }>();
   const { t, i18n } = useTranslation('common');
   const { user } = useAuthStatus();
   const { networkClient, baseUrl, token } = useApi();
@@ -19,7 +21,7 @@ export default function HistoriesPage() {
   const { histories, total, percentage, isLoading, error, createHistory } = useHistoriesManager({
     baseUrl,
     networkClient,
-    userId: user?.uid ?? null,
+    entitySlug: entitySlug ?? null,
     token: token ?? null,
   });
 
@@ -213,7 +215,7 @@ export default function HistoriesPage() {
             {histories.map(history => (
               <LocalizedLink
                 key={history.id}
-                to={`/histories/${history.id}`}
+                to={`/dashboard/${entitySlug}/histories/${history.id}`}
                 className="block p-4 rounded-lg border border-theme-border hover:bg-theme-hover-bg transition-colors"
                 role="listitem"
               >

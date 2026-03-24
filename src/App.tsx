@@ -1,6 +1,6 @@
 import { Suspense, lazy, type ReactNode } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { SudobilityAppWithFirebaseAuth } from '@sudobility/building_blocks/firebase';
+import { SudobilityAppWithFirebaseAuthAndEntities } from '@sudobility/building_blocks/firebase';
 import { LanguageValidator, PerformancePanel } from '@sudobility/components';
 import { isLanguageSupported, CONSTANTS } from './config/constants';
 import i18n from './i18n';
@@ -15,7 +15,11 @@ const HistoriesPage = lazy(() => import('./pages/HistoriesPage'));
 const HistoryDetailPage = lazy(() => import('./pages/HistoryDetailPage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const SitemapPage = lazy(() => import('./pages/SitemapPage'));
+const WorkspacesPage = lazy(() => import('./pages/WorkspacesPage'));
+const MembersPage = lazy(() => import('./pages/MembersPage'));
+const InvitationsPage = lazy(() => import('./pages/InvitationsPage'));
 const LanguageRedirect = lazy(() => import('./components/layout/LanguageRedirect'));
+const EntityRedirect = lazy(() => import('./components/layout/EntityRedirect'));
 
 /**
  * Full-screen loading spinner displayed while lazy-loaded route
@@ -66,23 +70,37 @@ function AppRoutes() {
               <Route index element={<HomePage />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="docs" element={<DocsPage />} />
-              <Route
-                path="histories"
-                element={
-                  <ErrorBoundary>
-                    <HistoriesPage />
-                  </ErrorBoundary>
-                }
-              />
-              <Route
-                path="histories/:historyId"
-                element={
-                  <ErrorBoundary>
-                    <HistoryDetailPage />
-                  </ErrorBoundary>
-                }
-              />
-              <Route path="settings" element={<SettingsPage />} />
+              <Route path="dashboard" element={<EntityRedirect />} />
+              <Route path="dashboard/:entitySlug">
+                <Route
+                  index
+                  element={
+                    <ErrorBoundary>
+                      <HistoriesPage />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="histories"
+                  element={
+                    <ErrorBoundary>
+                      <HistoriesPage />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="histories/:historyId"
+                  element={
+                    <ErrorBoundary>
+                      <HistoryDetailPage />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route path="settings" element={<SettingsPage />} />
+                <Route path="workspaces" element={<WorkspacesPage />} />
+                <Route path="members" element={<MembersPage />} />
+                <Route path="invitations" element={<InvitationsPage />} />
+              </Route>
               <Route path="sitemap" element={<SitemapPage />} />
               <Route path="*" element={<Navigate to="." replace />} />
             </Route>
@@ -97,14 +115,15 @@ function AppRoutes() {
 
 function App() {
   return (
-    <SudobilityAppWithFirebaseAuth
+    <SudobilityAppWithFirebaseAuthAndEntities
       i18n={i18n}
       baseUrl={CONSTANTS.API_URL}
+      apiUrl={CONSTANTS.API_URL}
       testMode={CONSTANTS.DEV_MODE}
       AuthProviderWrapper={AuthProviderWrapper}
     >
       <AppRoutes />
-    </SudobilityAppWithFirebaseAuth>
+    </SudobilityAppWithFirebaseAuthAndEntities>
   );
 }
 
