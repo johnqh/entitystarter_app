@@ -27,7 +27,7 @@ PROJECTS=(
     "../entitystarter_client:60"
     "../entitystarter_lib:60"
     "../entitystarter_app:0"
-    "../entityentitystarter_app_rn:0"
+    "../entitystarter_app_rn:0"
 )
 
 # Source reusable script: prefer local workflows repo, fall back to GitHub
