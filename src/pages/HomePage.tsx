@@ -20,7 +20,7 @@ export default function HomePage() {
               {t('home.viewDocs')}
             </LocalizedLink>
             <LocalizedLink
-              to="/histories"
+              to="/dashboard"
               className="px-6 py-3 border border-theme-border rounded-lg text-theme-text-primary hover:bg-theme-hover-bg transition-colors"
             >
               {t('home.viewHistories')}

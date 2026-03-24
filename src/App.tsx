@@ -20,6 +20,7 @@ const MembersPage = lazy(() => import('./pages/MembersPage'));
 const InvitationsPage = lazy(() => import('./pages/InvitationsPage'));
 const LanguageRedirect = lazy(() => import('./components/layout/LanguageRedirect'));
 const EntityRedirect = lazy(() => import('./components/layout/EntityRedirect'));
+const ProtectedRoute = lazy(() => import('./components/layout/ProtectedRoute'));
 
 /**
  * Full-screen loading spinner displayed while lazy-loaded route
@@ -70,36 +71,42 @@ function AppRoutes() {
               <Route index element={<HomePage />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="docs" element={<DocsPage />} />
-              <Route path="dashboard" element={<EntityRedirect />} />
+              <Route path="dashboard" element={<ProtectedRoute><EntityRedirect /></ProtectedRoute>} />
               <Route path="dashboard/:entitySlug">
                 <Route
                   index
                   element={
-                    <ErrorBoundary>
-                      <HistoriesPage />
-                    </ErrorBoundary>
+                    <ProtectedRoute>
+                      <ErrorBoundary>
+                        <HistoriesPage />
+                      </ErrorBoundary>
+                    </ProtectedRoute>
                   }
                 />
                 <Route
                   path="histories"
                   element={
-                    <ErrorBoundary>
-                      <HistoriesPage />
-                    </ErrorBoundary>
+                    <ProtectedRoute>
+                      <ErrorBoundary>
+                        <HistoriesPage />
+                      </ErrorBoundary>
+                    </ProtectedRoute>
                   }
                 />
                 <Route
                   path="histories/:historyId"
                   element={
-                    <ErrorBoundary>
-                      <HistoryDetailPage />
-                    </ErrorBoundary>
+                    <ProtectedRoute>
+                      <ErrorBoundary>
+                        <HistoryDetailPage />
+                      </ErrorBoundary>
+                    </ProtectedRoute>
                   }
                 />
-                <Route path="settings" element={<SettingsPage />} />
-                <Route path="workspaces" element={<WorkspacesPage />} />
-                <Route path="members" element={<MembersPage />} />
-                <Route path="invitations" element={<InvitationsPage />} />
+                <Route path="settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+                <Route path="workspaces" element={<ProtectedRoute><WorkspacesPage /></ProtectedRoute>} />
+                <Route path="members" element={<ProtectedRoute><MembersPage /></ProtectedRoute>} />
+                <Route path="invitations" element={<ProtectedRoute><InvitationsPage /></ProtectedRoute>} />
               </Route>
               <Route path="sitemap" element={<SitemapPage />} />
               <Route path="*" element={<Navigate to="." replace />} />

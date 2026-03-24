@@ -24,7 +24,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      navigate(`/${lang || 'en'}/histories`, { replace: true });
+      navigate(`/${lang || 'en'}/dashboard`, { replace: true });
     }
   }, [user, loading, navigate, lang]);
 
@@ -63,7 +63,7 @@ export default function LoginPage() {
       onGoogleSignIn={async () => {
         await signInWithPopup(auth, new GoogleAuthProvider());
       }}
-      onSuccess={() => navigate(`/${lang || 'en'}/histories`, { replace: true })}
+      onSuccess={() => navigate(`/${lang || 'en'}/dashboard`, { replace: true })}
     />
   );
 }

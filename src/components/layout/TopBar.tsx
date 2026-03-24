@@ -5,7 +5,8 @@ import {
   type AuthActionProps,
   type TopBarConfig,
 } from '@sudobility/building_blocks';
-import { AuthAction } from '@sudobility/auth-components';
+import { AuthAction, useAuthStatus } from '@sudobility/auth-components';
+import { useCurrentEntityOptional } from '@sudobility/entity_client';
 import type { ComponentType } from 'react';
 import { DocumentTextIcon, ClockIcon, Cog6ToothIcon } from '@heroicons/react/24/outline';
 import { useLocalizedNavigate } from '../../hooks/useLocalizedNavigate';
@@ -51,6 +52,10 @@ const linkWrapper = ({
 export function useTopBarConfig(): TopBarConfig {
   const { t } = useTranslation('common');
   const { navigate, switchLanguage, currentLanguage } = useLocalizedNavigate();
+  const { user } = useAuthStatus();
+  const entityContext = useCurrentEntityOptional();
+  const entitySlug = entityContext?.currentEntitySlug ?? null;
+  const isAuthenticated = !!user;
 
   const languages = useMemo(
     () =>
@@ -70,21 +75,27 @@ export function useTopBarConfig(): TopBarConfig {
         icon: DocumentTextIcon,
         href: '/docs',
       },
-      {
-        id: 'histories',
-        label: t('nav.histories'),
-        icon: ClockIcon,
-        href: '/histories',
-      },
-      {
-        id: 'settings',
-        label: t('nav.settings'),
-        icon: Cog6ToothIcon,
-        href: '/settings',
-      },
     ];
+
+    if (isAuthenticated) {
+      items.push(
+        {
+          id: 'histories',
+          label: t('nav.histories'),
+          icon: ClockIcon,
+          href: entitySlug ? `/dashboard/${entitySlug}/histories` : '/dashboard',
+        },
+        {
+          id: 'settings',
+          label: t('nav.settings'),
+          icon: Cog6ToothIcon,
+          href: entitySlug ? `/dashboard/${entitySlug}/settings` : '/dashboard',
+        },
+      );
+    }
+
     return items;
-  }, [t]);
+  }, [t, entitySlug, isAuthenticated]);
 
   const handleLanguageChange = (newLang: string) => {
     if (isLanguageSupported(newLang)) {

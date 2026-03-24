@@ -70,18 +70,13 @@ export default function SitemapPage() {
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/histories" className="text-blue-600 hover:underline">
+              <LocalizedLink to="/dashboard" className="text-blue-600 hover:underline">
                 {t('nav.histories')}
               </LocalizedLink>
             </li>
             <li>
               <LocalizedLink to="/login" className="text-blue-600 hover:underline">
                 {t('nav.login')}
-              </LocalizedLink>
-            </li>
-            <li>
-              <LocalizedLink to="/settings" className="text-blue-600 hover:underline">
-                {t('nav.settings')}
               </LocalizedLink>
             </li>
           </ul>

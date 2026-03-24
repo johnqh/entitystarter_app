@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { type FooterConfig, type FooterLinkSection } from '@sudobility/building_blocks';
+import { useCurrentEntityOptional } from '@sudobility/entity_client';
 import { CONSTANTS } from '../../config/constants';
 import LocalizedLink from './LocalizedLink';
 
@@ -20,6 +21,8 @@ const linkWrapper = ({
 export function useFooterConfig(variant: 'full' | 'compact'): FooterConfig {
   const { t } = useTranslation();
   const currentYear = String(new Date().getFullYear());
+  const entityContext = useCurrentEntityOptional();
+  const entitySlug = entityContext?.currentEntitySlug ?? null;
 
   if (variant === 'compact') {
     return {
@@ -44,11 +47,11 @@ export function useFooterConfig(variant: 'full' | 'compact'): FooterConfig {
     },
     {
       title: t('nav.histories'),
-      links: [{ label: t('histories.title'), href: '/histories' }],
+      links: [{ label: t('histories.title'), href: entitySlug ? `/dashboard/${entitySlug}/histories` : '/dashboard' }],
     },
     {
       title: t('nav.settings'),
-      links: [{ label: t('nav.settings'), href: '/settings' }],
+      links: [{ label: t('nav.settings'), href: entitySlug ? `/dashboard/${entitySlug}/settings` : '/dashboard' }],
     },
   ];
 
