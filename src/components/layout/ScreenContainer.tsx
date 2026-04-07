@@ -4,20 +4,30 @@ import { AppPageLayout } from '@sudobility/building_blocks';
 import { useTopBarConfig } from './TopBar';
 import { useFooterConfig } from './Footer';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs';
+import { PageConfigProvider } from '../../context/PageConfigProvider';
+import { usePageConfig } from '../../hooks/usePageConfig';
 
 interface ScreenContainerProps {
   children: ReactNode;
 }
 
 /**
- * Page layout shell providing consistent navigation, breadcrumbs, and footer.
- *
- * Breadcrumbs are hidden on the home page. The footer switches between
- * "full" (home page) and "compact" (all other pages) variants.
+ * Page layout shell wrapping all routes at the route level.
+ * Provides PageConfigProvider so child pages can use useSetPageConfig
+ * for layout overrides.
  */
 export default function ScreenContainer({ children }: ScreenContainerProps) {
+  return (
+    <PageConfigProvider>
+      <ScreenContainerInner>{children}</ScreenContainerInner>
+    </PageConfigProvider>
+  );
+}
+
+function ScreenContainerInner({ children }: { children: ReactNode }) {
   const location = useLocation();
   const { items: breadcrumbItems } = useBreadcrumbs();
+  const { pageConfig } = usePageConfig();
 
   const pathParts = location.pathname.split('/').filter(Boolean);
   const isHomePage = pathParts.length <= 1;
@@ -36,7 +46,12 @@ export default function ScreenContainer({ children }: ScreenContainerProps) {
           : undefined
       }
       footer={footerConfig}
-      page={{ maxWidth: 'full', contentPadding: 'none' }}
+      page={{
+        maxWidth: 'full',
+        contentPadding: 'none',
+        contentClassName: 'w-full min-w-0',
+        ...pageConfig,
+      }}
     >
       {children}
     </AppPageLayout>

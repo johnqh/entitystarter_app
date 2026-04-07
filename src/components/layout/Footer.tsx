@@ -47,11 +47,21 @@ export function useFooterConfig(variant: 'full' | 'compact'): FooterConfig {
     },
     {
       title: t('nav.histories'),
-      links: [{ label: t('histories.title'), href: entitySlug ? `/dashboard/${entitySlug}/histories` : '/dashboard' }],
+      links: [
+        {
+          label: t('histories.title'),
+          href: entitySlug ? `/dashboard/${entitySlug}/histories` : '/dashboard',
+        },
+      ],
     },
     {
       title: t('nav.settings'),
-      links: [{ label: t('nav.settings'), href: entitySlug ? `/dashboard/${entitySlug}/settings` : '/dashboard' }],
+      links: [
+        {
+          label: t('nav.settings'),
+          href: entitySlug ? `/dashboard/${entitySlug}/settings` : '/dashboard',
+        },
+      ],
     },
   ];
 

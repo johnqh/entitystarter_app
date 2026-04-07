@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ScreenContainer from '../components/layout/ScreenContainer';
+import { MasterDetailLayout } from '@sudobility/components';
+import { useSetPageConfig } from '../hooks/usePageConfig';
 
 const SECTIONS = [
   { id: 'overview', label: 'Overview' },
@@ -57,44 +58,56 @@ const DOCS_CONTENT: Record<string, { title: string; content: string }> = {
 export default function DocsPage() {
   const { t } = useTranslation('common');
   const [activeSection, setActiveSection] = useState('overview');
+  const [mobileView, setMobileView] = useState<'navigation' | 'content'>('navigation');
+
+  useSetPageConfig({ scrollable: false, contentPadding: 'sm', maxWidth: '7xl' });
 
   const doc = DOCS_CONTENT[activeSection] || DOCS_CONTENT.overview;
 
-  return (
-    <ScreenContainer>
-      <div className="container-app px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-theme-text-primary mb-8">{t('docs.title')}</h1>
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Sidebar */}
-          <nav className="md:w-56 shrink-0" aria-label="Documentation sections">
-            <ul className="space-y-1" role="tablist" aria-orientation="vertical">
-              {SECTIONS.map(section => (
-                <li key={section.id} role="presentation">
-                  <button
-                    role="tab"
-                    aria-selected={activeSection === section.id}
-                    aria-controls="docs-content"
-                    onClick={() => setActiveSection(section.id)}
-                    className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
-                      activeSection === section.id
-                        ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 font-medium'
-                        : 'text-theme-text-secondary hover:bg-theme-hover-bg'
-                    }`}
-                  >
-                    {section.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
+  const masterContent = (
+    <ul className="space-y-1" role="tablist" aria-orientation="vertical">
+      {SECTIONS.map(section => (
+        <li key={section.id} role="presentation">
+          <button
+            role="tab"
+            aria-selected={activeSection === section.id}
+            aria-controls="docs-content"
+            onClick={() => {
+              setActiveSection(section.id);
+              setMobileView('content');
+            }}
+            className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+              activeSection === section.id
+                ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 font-medium'
+                : 'text-theme-text-secondary hover:bg-theme-hover-bg'
+            }`}
+          >
+            {section.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
 
-          {/* Content */}
-          <div id="docs-content" role="tabpanel" aria-label={doc.title} className="flex-1 min-w-0">
-            <h2 className="text-2xl font-semibold text-theme-text-primary mb-4">{doc.title}</h2>
-            <p className="text-theme-text-secondary leading-relaxed">{doc.content}</p>
-          </div>
-        </div>
-      </div>
-    </ScreenContainer>
+  const detailContent = (
+    <div id="docs-content" role="tabpanel" aria-label={doc.title}>
+      <h2 className="text-2xl font-semibold text-theme-text-primary mb-4">{doc.title}</h2>
+      <p className="text-theme-text-secondary leading-relaxed">{doc.content}</p>
+    </div>
+  );
+
+  return (
+    <div className="w-full min-w-0 overflow-x-hidden flex-1 flex flex-col min-h-0">
+      <MasterDetailLayout
+        masterTitle={t('docs.title')}
+        masterContent={masterContent}
+        detailContent={detailContent}
+        detailTitle={doc.title}
+        mobileView={mobileView}
+        onBackToNavigation={() => setMobileView('navigation')}
+        masterWidth={220}
+        stickyMaster
+      />
+    </div>
   );
 }

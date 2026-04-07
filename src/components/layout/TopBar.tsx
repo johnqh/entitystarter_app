@@ -90,7 +90,7 @@ export function useTopBarConfig(): TopBarConfig {
           label: t('nav.settings'),
           icon: Cog6ToothIcon,
           href: entitySlug ? `/dashboard/${entitySlug}/settings` : '/dashboard',
-        },
+        }
       );
     }
 

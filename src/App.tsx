@@ -1,5 +1,5 @@
 import { Suspense, lazy, type ReactNode } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { SudobilityAppWithFirebaseAuthAndEntities } from '@sudobility/building_blocks/firebase';
 import { LanguageValidator, PerformancePanel } from '@sudobility/components';
 import { isLanguageSupported, CONSTANTS } from './config/constants';
@@ -7,6 +7,7 @@ import i18n from './i18n';
 import { useDocumentLanguage } from './hooks/useDocumentLanguage';
 import { AuthProviderWrapper } from './components/providers/AuthProviderWrapper';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import ScreenContainer from './components/layout/ScreenContainer';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -44,11 +45,27 @@ function DocumentLanguageSync({ children }: { children: ReactNode }) {
 // Stable reference to prevent infinite re-renders
 const PERFORMANCE_API_PATTERNS = ['/api/'];
 
+function ScreenContainerLayout() {
+  return (
+    <ScreenContainer>
+      <Suspense fallback={<LoadingFallback />}>
+        <Outlet />
+      </Suspense>
+    </ScreenContainer>
+  );
+}
+
 function PerformancePanelComponent() {
   if (import.meta.env.VITE_SHOW_PERFORMANCE_MONITOR !== 'true') {
     return null;
   }
-  return <PerformancePanel enabled={true} position="bottom-right" apiPatterns={PERFORMANCE_API_PATTERNS} />;
+  return (
+    <PerformancePanel
+      enabled={true}
+      position="bottom-right"
+      apiPatterns={PERFORMANCE_API_PATTERNS}
+    />
+  );
 }
 
 function AppRoutes() {
@@ -68,47 +85,84 @@ function AppRoutes() {
                 />
               }
             >
-              <Route index element={<HomePage />} />
-              <Route path="login" element={<LoginPage />} />
-              <Route path="docs" element={<DocsPage />} />
-              <Route path="dashboard" element={<ProtectedRoute><EntityRedirect /></ProtectedRoute>} />
-              <Route path="dashboard/:entitySlug">
+              <Route element={<ScreenContainerLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="docs" element={<DocsPage />} />
                 <Route
-                  index
+                  path="dashboard"
                   element={
                     <ProtectedRoute>
-                      <ErrorBoundary>
-                        <HistoriesPage />
-                      </ErrorBoundary>
+                      <EntityRedirect />
                     </ProtectedRoute>
                   }
                 />
-                <Route
-                  path="histories"
-                  element={
-                    <ProtectedRoute>
-                      <ErrorBoundary>
-                        <HistoriesPage />
-                      </ErrorBoundary>
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="histories/:historyId"
-                  element={
-                    <ProtectedRoute>
-                      <ErrorBoundary>
-                        <HistoryDetailPage />
-                      </ErrorBoundary>
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
-                <Route path="workspaces" element={<ProtectedRoute><WorkspacesPage /></ProtectedRoute>} />
-                <Route path="members" element={<ProtectedRoute><MembersPage /></ProtectedRoute>} />
-                <Route path="invitations" element={<ProtectedRoute><InvitationsPage /></ProtectedRoute>} />
+                <Route path="dashboard/:entitySlug">
+                  <Route
+                    index
+                    element={
+                      <ProtectedRoute>
+                        <ErrorBoundary>
+                          <HistoriesPage />
+                        </ErrorBoundary>
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="histories"
+                    element={
+                      <ProtectedRoute>
+                        <ErrorBoundary>
+                          <HistoriesPage />
+                        </ErrorBoundary>
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="histories/:historyId"
+                    element={
+                      <ProtectedRoute>
+                        <ErrorBoundary>
+                          <HistoryDetailPage />
+                        </ErrorBoundary>
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="settings"
+                    element={
+                      <ProtectedRoute>
+                        <SettingsPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="workspaces"
+                    element={
+                      <ProtectedRoute>
+                        <WorkspacesPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="members"
+                    element={
+                      <ProtectedRoute>
+                        <MembersPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="invitations"
+                    element={
+                      <ProtectedRoute>
+                        <InvitationsPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                </Route>
+                <Route path="sitemap" element={<SitemapPage />} />
               </Route>
-              <Route path="sitemap" element={<SitemapPage />} />
+              <Route path="login" element={<LoginPage />} />
               <Route path="*" element={<Navigate to="." replace />} />
             </Route>
             <Route path="*" element={<LanguageRedirect />} />
