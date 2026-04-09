@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Section } from '@sudobility/components';
+import { buttonVariant } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 
 /** Landing page showcasing the application's key features and entry points. */
@@ -15,13 +16,13 @@ export default function HomePage() {
           <div className="flex gap-4 justify-center">
             <LocalizedLink
               to="/docs"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className={`px-6 py-3 rounded-lg ${buttonVariant('primary')}`}
             >
               {t('home.viewDocs')}
             </LocalizedLink>
             <LocalizedLink
               to="/dashboard"
-              className="px-6 py-3 border border-theme-border rounded-lg text-theme-text-primary hover:bg-theme-hover-bg transition-colors"
+              className={`px-6 py-3 rounded-lg ${buttonVariant('outline')}`}
             >
               {t('home.viewHistories')}
             </LocalizedLink>

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
 import { Section } from '@sudobility/components';
+import { buttonVariant, variants, colors } from '@sudobility/design';
 import { useLocalizedNavigate } from '../hooks/useLocalizedNavigate';
 import { formatDateTime } from '../utils/formatDateTime';
 
@@ -37,7 +38,7 @@ export default function HistoryDetailPage() {
           <div
             role="status"
             aria-label="Loading history detail"
-            className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"
+            className={`mx-auto ${variants.loading.spinner.default()}`}
           />
         </div>
       </Section>
@@ -76,7 +77,7 @@ export default function HistoryDetailPage() {
       {deleteError && (
         <div
           role="alert"
-          className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-lg text-sm"
+          className={`mb-4 p-3 rounded-lg text-sm ${colors.component.alert.error.base} ${colors.component.alert.error.dark}`}
         >
           {deleteError}
         </div>
@@ -112,13 +113,13 @@ export default function HistoryDetailPage() {
 
         {showDeleteConfirm ? (
           <div className="flex gap-2 items-center" role="alert">
-            <span className="text-sm text-red-600 dark:text-red-400">
+            <span className={`text-sm ${colors.component.alert.error.icon}`}>
               {t('common.confirmDelete', 'Are you sure?')}
             </span>
             <button
               onClick={handleDelete}
               disabled={isDeleting}
-              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              className={`px-4 py-2 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed ${buttonVariant('destructive')}`}
               aria-busy={isDeleting}
             >
               {isDeleting ? t('common.loading', 'Loading...') : t('common.confirm', 'Confirm')}
@@ -133,7 +134,7 @@ export default function HistoryDetailPage() {
         ) : (
           <button
             onClick={() => setShowDeleteConfirm(true)}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm"
+            className={`px-4 py-2 rounded-lg text-sm ${buttonVariant('destructive')}`}
           >
             {t('common.delete')}
           </button>

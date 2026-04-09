@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useCurrentEntity } from '@sudobility/entity_client';
+import { variants } from '@sudobility/design';
 
 /**
  * Redirects from /:lang/dashboard to /:lang/dashboard/:entitySlug
@@ -31,7 +32,7 @@ function EntityRedirect() {
       <div
         role="status"
         aria-label="Loading"
-        className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+        className={variants.loading.spinner.default()}
       />
     </div>
   );

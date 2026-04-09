@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Section } from '@sudobility/components';
+import { ui } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { SUPPORTED_LANGUAGES } from '../config/constants';
 
@@ -59,22 +60,22 @@ export default function SitemapPage() {
         </h2>
         <ul className="space-y-2">
           <li>
-            <LocalizedLink to="/" className="text-blue-600 hover:underline">
+            <LocalizedLink to="/" className={ui.text.linkSubtle}>
               {t('nav.home')}
             </LocalizedLink>
           </li>
           <li>
-            <LocalizedLink to="/docs" className="text-blue-600 hover:underline">
+            <LocalizedLink to="/docs" className={ui.text.linkSubtle}>
               {t('nav.docs')}
             </LocalizedLink>
           </li>
           <li>
-            <LocalizedLink to="/dashboard" className="text-blue-600 hover:underline">
+            <LocalizedLink to="/dashboard" className={ui.text.linkSubtle}>
               {t('nav.histories')}
             </LocalizedLink>
           </li>
           <li>
-            <LocalizedLink to="/login" className="text-blue-600 hover:underline">
+            <LocalizedLink to="/login" className={ui.text.linkSubtle}>
               {t('nav.login')}
             </LocalizedLink>
           </li>

@@ -3,6 +3,7 @@ import { useEntityClient } from '../config/entityClient';
 import { useAuthStatus } from '@sudobility/auth-components';
 import { useCurrentEntity } from '@sudobility/entity_client';
 import { Section } from '@sudobility/components';
+import { variants } from '@sudobility/design';
 
 function MembersPage() {
   const entityClient = useEntityClient();
@@ -13,7 +14,7 @@ function MembersPage() {
     return (
       <Section spacing="xl">
         <div className="flex items-center justify-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
+          <div className={variants.loading.spinner.default()} />
         </div>
       </Section>
     );

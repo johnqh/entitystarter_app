@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useAuthStatus } from '@sudobility/auth-components';
+import { variants } from '@sudobility/design';
 
 interface ProtectedRouteProps {
   /** Content that should only be visible to authenticated users. */
@@ -22,7 +23,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
         <div
           role="status"
           aria-label="Loading"
-          className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+          className={variants.loading.spinner.default()}
         />
       </div>
     );

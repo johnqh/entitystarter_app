@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MasterDetailLayout } from '@sudobility/components';
+import { ui } from '@sudobility/design';
 import { useSetPageConfig } from '../hooks/usePageConfig';
 
 const SECTIONS = [
@@ -76,7 +77,7 @@ export default function DocsPage() {
               setActiveSection(section.id);
               setMobileView('content');
             }}
-            className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+            className={`w-full text-left px-3 py-2 rounded-md text-sm ${ui.transition.default} ${
               activeSection === section.id
                 ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 font-medium'
                 : 'text-theme-text-secondary hover:bg-theme-hover-bg'

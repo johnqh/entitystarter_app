@@ -5,6 +5,7 @@ import { useAuthStatus } from '@sudobility/auth-components';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
 import { Section } from '@sudobility/components';
+import { buttonVariant, variants, ui, colors } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { formatDateTime } from '../utils/formatDateTime';
 
@@ -44,7 +45,7 @@ export default function HistoriesPage() {
           <p className="text-theme-text-secondary mb-6">{t('histories.loginPrompt')}</p>
           <LocalizedLink
             to="/login"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className={`px-6 py-3 rounded-lg ${buttonVariant('primary')}`}
           >
             {t('nav.login')}
           </LocalizedLink>
@@ -100,7 +101,7 @@ export default function HistoriesPage() {
             setShowForm(!showForm);
             setSubmitError(null);
           }}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
+          className={`px-4 py-2 rounded-lg text-sm ${buttonVariant('primary')}`}
           aria-expanded={showForm}
           aria-controls="history-form"
         >
@@ -177,7 +178,7 @@ export default function HistoriesPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            className={`mt-4 px-4 py-2 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed ${buttonVariant('primary')}`}
             aria-busy={isSubmitting}
           >
             {isSubmitting ? t('common.loading', 'Loading...') : t('histories.create')}
@@ -189,7 +190,7 @@ export default function HistoriesPage() {
       {displayError && (
         <div
           role="alert"
-          className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-lg text-sm"
+          className={`mb-4 p-3 rounded-lg text-sm ${colors.component.alert.error.base} ${colors.component.alert.error.dark}`}
         >
           {displayError}
         </div>
@@ -201,7 +202,7 @@ export default function HistoriesPage() {
           <div
             role="status"
             aria-label="Loading histories"
-            className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"
+            className={`mx-auto ${variants.loading.spinner.default()}`}
           />
         </div>
       )}
@@ -215,7 +216,7 @@ export default function HistoriesPage() {
             <LocalizedLink
               key={history.id}
               to={`/dashboard/${entitySlug}/histories/${history.id}`}
-              className="block p-4 rounded-lg border border-theme-border hover:bg-theme-hover-bg transition-colors"
+              className={`block p-4 rounded-lg border border-theme-border hover:bg-theme-hover-bg ${ui.transition.default}`}
               role="listitem"
             >
               <div className="flex justify-between items-center">

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import type { ErrorInfo, ReactNode } from 'react';
+import { buttonVariant } from '@sudobility/design';
 
 interface ErrorBoundaryProps {
   /** Content to render when no error has occurred. */
@@ -59,7 +60,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             </p>
             <button
               onClick={this.handleRetry}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
+              className={`px-4 py-2 rounded-lg text-sm ${buttonVariant('primary')}`}
             >
               Try again
             </button>

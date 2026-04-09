@@ -2,6 +2,7 @@ import { Suspense, lazy, type ReactNode } from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { SudobilityAppWithFirebaseAuthAndEntities } from '@sudobility/building_blocks/firebase';
 import { LanguageValidator, PerformancePanel } from '@sudobility/components';
+import { variants } from '@sudobility/design';
 import { isLanguageSupported, CONSTANTS } from './config/constants';
 import i18n from './i18n';
 import { useDocumentLanguage } from './hooks/useDocumentLanguage';
@@ -32,7 +33,7 @@ const LoadingFallback = () => (
     <div
       role="status"
       aria-label="Loading"
-      className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+      className={variants.loading.spinner.default()}
     />
   </div>
 );
