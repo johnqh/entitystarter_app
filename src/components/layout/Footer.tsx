@@ -77,6 +77,5 @@ export function useFooterConfig(variant: 'full' | 'compact'): FooterConfig {
     companyUrl: '/',
     description: t('app.tagline'),
     LinkComponent: linkWrapper,
-    gridColumns: 3,
   };
 }
