@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Starter",
+    "tagline": "Ett mallprojekt som visar arkitekturmönstret Sudobility."
+  },
+  "breadcrumbs": {
+    "home": "Hem",
+    "docs": "Dokumentation",
+    "histories": "Historier",
+    "settings": "Inställningar",
+    "sitemap": "Webbplatskarta",
+    "login": "Logga in",
+    "privacy": "Integritet",
+    "terms": "Villkor"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

@@ -20,11 +20,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-theme-bg-primary">
-        <div
-          role="status"
-          aria-label="Loading"
-          className={variants.loading.spinner.default()}
-        />
+        <div role="status" aria-label="Loading" className={variants.loading.spinner.default()} />
       </div>
     );
   }

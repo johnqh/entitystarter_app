@@ -1,9 +1,9 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-import { readFileSync } from "fs";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { readFileSync } from 'fs';
 
-const pkg = JSON.parse(readFileSync("./package.json", "utf-8"));
+const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
 export default defineConfig({
   plugins: [react()],
@@ -15,27 +15,24 @@ export default defineConfig({
   },
   resolve: {
     dedupe: [
-      "react",
-      "react-dom",
-      "@tanstack/react-query",
-      "react-helmet-async",
-      "@sudobility/components",
-      "@sudobility/building_blocks",
+      'react',
+      'react-dom',
+      '@tanstack/react-query',
+      'react-helmet-async',
+      '@sudobility/components',
+      '@sudobility/building_blocks',
     ],
     alias: {
-      react: path.resolve(__dirname, "node_modules/react"),
-      "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
-      "react-helmet-async": path.resolve(
-        __dirname,
-        "node_modules/react-helmet-async",
-      ),
+      react: path.resolve(__dirname, 'node_modules/react'),
+      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+      'react-helmet-async': path.resolve(__dirname, 'node_modules/react-helmet-async'),
     },
   },
   optimizeDeps: {
-    include: ["react", "react-dom"],
+    include: ['react', 'react-dom'],
   },
   build: {
-    target: "es2020",
+    target: 'es2020',
     sourcemap: false,
     chunkSizeWarningLimit: 1000,
   },

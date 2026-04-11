@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { SEO } from '@sudobility/seo_lib';
 import { MasterDetailLayout } from '@sudobility/components';
 import { ui } from '@sudobility/design';
 import { useSetPageConfig } from '../hooks/usePageConfig';
+import { seoConfig } from '../config/seo';
 
 const SECTIONS = [
   { id: 'overview', label: 'Overview' },
@@ -58,6 +61,7 @@ const DOCS_CONTENT: Record<string, { title: string; content: string }> = {
  */
 export default function DocsPage() {
   const { t } = useTranslation('common');
+  const { lang } = useParams<{ lang: string }>();
   const [activeSection, setActiveSection] = useState('overview');
   const [mobileView, setMobileView] = useState<'navigation' | 'content'>('navigation');
 
@@ -99,6 +103,12 @@ export default function DocsPage() {
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden flex-1 flex flex-col min-h-0">
+      <SEO
+        config={seoConfig}
+        title={t('docs.title')}
+        description="Technical documentation for the Starter project ecosystem"
+        canonical={`/${lang || 'en'}/docs`}
+      />
       <MasterDetailLayout
         masterTitle={t('docs.title')}
         masterContent={masterContent}

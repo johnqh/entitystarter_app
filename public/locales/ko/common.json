@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "스타터",
+    "tagline": "Sudobility 아키텍처 패턴을 보여주는 템플릿 프로젝트입니다."
+  },
+  "breadcrumbs": {
+    "home": "홈",
+    "docs": "문서",
+    "histories": "역사",
+    "settings": "설정",
+    "sitemap": "사이트맵",
+    "login": "로그인",
+    "privacy": "개인정보",
+    "terms": "이용 약관"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "เริ่มต้น",
+    "tagline": "โครงการต้นแบบที่แสดงรูปแบบสถาปัตยกรรม Sudobility"
+  },
+  "breadcrumbs": {
+    "home": "หน้าหลัก",
+    "docs": "เอกสาร",
+    "histories": "ประวัติศาสตร์",
+    "settings": "การตั้งค่า",
+    "sitemap": "แผนผังเว็บไซต์",
+    "login": "เข้าสู่ระบบ",
+    "privacy": "ความเป็นส่วนตัว",
+    "terms": "ข้อกำหนด"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

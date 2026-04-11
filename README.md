@@ -11,14 +11,14 @@ cp .env.example .env   # Configure environment variables
 
 ### Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `VITE_API_URL` | Backend API URL | `http://localhost:8022` |
-| `VITE_FIREBASE_API_KEY` | Firebase API key | required |
-| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | required |
-| `VITE_FIREBASE_PROJECT_ID` | Firebase project ID | required |
-| `VITE_APP_NAME` | Application name | `Starter` |
-| `VITE_APP_DOMAIN` | Application domain | `localhost` |
+| Variable                    | Description          | Default                 |
+| --------------------------- | -------------------- | ----------------------- |
+| `VITE_API_URL`              | Backend API URL      | `http://localhost:8022` |
+| `VITE_FIREBASE_API_KEY`     | Firebase API key     | required                |
+| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | required                |
+| `VITE_FIREBASE_PROJECT_ID`  | Firebase project ID  | required                |
+| `VITE_APP_NAME`             | Application name     | `Starter`               |
+| `VITE_APP_DOMAIN`           | Application domain   | `localhost`             |
 
 ## Running
 

@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Người mới",
+    "tagline": "Một dự án mẫu minh họa mẫu kiến trúc Sudobility"
+  },
+  "breadcrumbs": {
+    "home": "Trang chủ",
+    "docs": "Tài liệu",
+    "histories": "Lịch sử",
+    "settings": "Cài đặt",
+    "sitemap": "Sơ đồ trang web",
+    "login": "Đăng nhập",
+    "privacy": "Bảo mật",
+    "terms": "Điều khoản"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

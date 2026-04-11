@@ -78,18 +78,19 @@ Pages are lazy-loaded with React Suspense.
 ## Shared Components
 
 Uses `@sudobility/building_blocks` for:
+
 - TopBar, LoginPage, SettingsPage, SudobilityAppWithFirebaseAuth
 
 ## Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `VITE_API_URL` | Backend API URL | `http://localhost:8022` |
-| `VITE_FIREBASE_API_KEY` | Firebase API key | required |
-| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | required |
-| `VITE_FIREBASE_PROJECT_ID` | Firebase project ID | required |
-| `VITE_APP_NAME` | Application name | `Entity_Starter` |
-| `VITE_APP_DOMAIN` | Application domain | `localhost` |
+| Variable                    | Description          | Default                 |
+| --------------------------- | -------------------- | ----------------------- |
+| `VITE_API_URL`              | Backend API URL      | `http://localhost:8022` |
+| `VITE_FIREBASE_API_KEY`     | Firebase API key     | required                |
+| `VITE_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | required                |
+| `VITE_FIREBASE_PROJECT_ID`  | Firebase project ID  | required                |
+| `VITE_APP_NAME`             | Application name     | `Entity_Starter`        |
+| `VITE_APP_DOMAIN`           | Application domain   | `localhost`             |
 
 **Note**: The default API URL in constants is `http://localhost:8022`, matching the API server's default port.
 

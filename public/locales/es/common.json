@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Iniciador",
+    "tagline": "Un proyecto de plantilla que demuestra el patrón de arquitectura Sudobility."
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "docs": "Documentación",
+    "histories": "Historias",
+    "settings": "Ajustes",
+    "sitemap": "Mapa del sitio",
+    "login": "Iniciar sesión",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

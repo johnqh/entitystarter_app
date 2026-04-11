@@ -1,14 +1,25 @@
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { SEO } from '@sudobility/seo_lib';
 import { Section } from '@sudobility/components';
 import { buttonVariant } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
+import { seoConfig } from '../config/seo';
 
 /** Landing page showcasing the application's key features and entry points. */
 export default function HomePage() {
   const { t } = useTranslation('common');
+  const { lang } = useParams<{ lang: string }>();
 
   return (
     <>
+      <SEO
+        config={seoConfig}
+        title={t('home.title')}
+        description={t('home.description')}
+        canonical={`/${lang || 'en'}`}
+        ogType="website"
+      />
       <Section spacing="5xl" variant="hero" maxWidth="3xl">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-theme-text-primary mb-6">{t('home.title')}</h1>

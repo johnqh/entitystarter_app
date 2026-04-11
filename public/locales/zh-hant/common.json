@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "啟動",
+    "tagline": "一個演示Sudobility架構模式的範本專案。"
+  },
+  "breadcrumbs": {
+    "home": "首頁",
+    "docs": "文件",
+    "histories": "歷史",
+    "settings": "設定",
+    "sitemap": "網站地圖",
+    "login": "登入",
+    "privacy": "隱私",
+    "terms": "條款"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

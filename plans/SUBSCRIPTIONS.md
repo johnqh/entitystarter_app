@@ -45,7 +45,7 @@ export interface UseAllOfferingsResult {
   refetch: () => Promise<void>;
 }
 
-export function useAllOfferings(): UseAllOfferingsResult
+export function useAllOfferings(): UseAllOfferingsResult;
 ```
 
 - Follows `useSubscriptions` pattern (useState + useEffect + useCallback)
@@ -63,7 +63,7 @@ export interface UseOfferingPackagesResult {
   error: Error | null;
 }
 
-export function useOfferingPackages(offerId: string): UseOfferingPackagesResult
+export function useOfferingPackages(offerId: string): UseOfferingPackagesResult;
 ```
 
 - Uses `useAllOfferings()` internally
@@ -88,7 +88,7 @@ export interface UsePackagesByDurationResult {
   refetch: () => Promise<void>;
 }
 
-export function usePackagesByDuration(): UsePackagesByDurationResult
+export function usePackagesByDuration(): UsePackagesByDurationResult;
 ```
 
 - Uses `useAllOfferings()` internally
@@ -101,6 +101,7 @@ export function usePackagesByDuration(): UsePackagesByDurationResult
 ### 1.5 Deprecate Existing Hooks
 
 Add `@deprecated` JSDoc to:
+
 - `useSubscriptions` -- "Use useAllOfferings() or useOfferingPackages() instead"
 - `useSubscriptionPeriods` -- "Use usePackagesByDuration() instead"
 - `useSubscriptionForPeriod` -- "Use usePackagesByDuration() instead"
@@ -117,6 +118,7 @@ Add exports: `useAllOfferings`, `useOfferingPackages`, `usePackagesByDuration`, 
 ### 1.7 Tests
 
 **New files:**
+
 - `subscription_lib/src/hooks/useAllOfferings.test.ts`
 - `subscription_lib/src/hooks/useOfferingPackages.test.ts`
 - `subscription_lib/src/hooks/usePackagesByDuration.test.ts`
@@ -181,6 +183,7 @@ Externals: `react`, `react-dom`, `react/jsx-runtime`, `@sudobility/subscription_
 ### 2.4 SubscriptionByDurationPage
 
 **Props:**
+
 ```typescript
 export interface SubscriptionByDurationPageProps {
   isLoggedIn: boolean;
@@ -195,14 +198,17 @@ export interface SubscriptionByDurationPageProps {
 ```
 
 **Hooks used:**
+
 - `usePackagesByDuration()` -- grouped data + available durations
 - `useUserSubscription({ userId, userEmail })` -- current subscription
 
 **Local state:**
+
 - `selectedDuration: SubscriptionPeriod` (defaults to first available)
 - `purchaseError: string | null`
 
 **UI structure:**
+
 - `SubscriptionLayout` (variant="cta") with `currentStatus` if user has subscription
 - `SegmentedControl` in `aboveProducts` for duration tabs
 - Free tile via `freeTileConfig` on SubscriptionLayout
@@ -210,14 +216,15 @@ export interface SubscriptionByDurationPageProps {
 
 **CTA logic (core of both pages):**
 
-| State | Free Tile CTA | Paid Tile CTA |
-|-------|--------------|---------------|
-| Not logged in | "Try it for Free" → onNavigateToLogin | "Log in to Continue" → onNavigateToLogin |
-| Logged in, no sub | Selected (Current Plan), no CTA | "Subscribe" → purchase() |
-| Logged in, has sub, this is current | Selected (Current Plan), no CTA | -- |
-| Logged in, has sub, this is NOT current | "Cancel Subscription" → managementUrl | "Change Subscription" → purchase() |
+| State                                   | Free Tile CTA                         | Paid Tile CTA                            |
+| --------------------------------------- | ------------------------------------- | ---------------------------------------- |
+| Not logged in                           | "Try it for Free" → onNavigateToLogin | "Log in to Continue" → onNavigateToLogin |
+| Logged in, no sub                       | Selected (Current Plan), no CTA       | "Subscribe" → purchase()                 |
+| Logged in, has sub, this is current     | Selected (Current Plan), no CTA       | --                                       |
+| Logged in, has sub, this is NOT current | "Cancel Subscription" → managementUrl | "Change Subscription" → purchase()       |
 
 **handlePurchase:**
+
 ```typescript
 const service = getSubscriptionInstance();
 await service.purchase({ packageId, offeringId, customerEmail });
@@ -227,6 +234,7 @@ await refreshSubscription();
 ### 2.5 SubscriptionByOfferPage
 
 **Props:**
+
 ```typescript
 export interface SubscriptionByOfferPageProps {
   isLoggedIn: boolean;
@@ -241,14 +249,17 @@ export interface SubscriptionByOfferPageProps {
 ```
 
 **Hooks used:**
+
 - `useAllOfferings()` -- all offerings for segmented control
 - `useOfferingPackages(selectedOfferId)` -- packages for selected offering
 - `useUserSubscription({ userId, userEmail })` -- current subscription
 
 **Local state:**
+
 - `selectedSegment: 'free' | string` (offerId)
 
 **UI structure:**
+
 - `SegmentedControl` options: `[{ value: 'free', label: 'Free' }, ...offerings]`
 - When 'free' selected: single Free tile
 - When offering selected: duration tiles for that offering (sorted by period)
@@ -317,6 +328,7 @@ export interface SubscriptionByDurationPageProps {
 ```
 
 **Key differences from web:**
+
 - No "not logged in" state
 - Uses RN `SubscriptionTile` (takes `product: SubscriptionProduct` prop -- requires mapping from subscription_lib types)
 - Uses `Linking.openURL(managementUrl)` for cancel
@@ -324,8 +336,13 @@ export interface SubscriptionByDurationPageProps {
 - Uses `SubscriptionFooter` for restore purchases
 
 **Mapping function** (local utility in each page):
+
 ```typescript
-function mapToRnProduct(pkg: SubscriptionPackage, features: string[], isCurrent: boolean): RnSubscriptionProduct
+function mapToRnProduct(
+  pkg: SubscriptionPackage,
+  features: string[],
+  isCurrent: boolean
+): RnSubscriptionProduct;
 ```
 
 ### 3.4 SubscriptionByOfferPage (RN)
@@ -351,6 +368,7 @@ Same as web version but without login states, using RN components.
 ## Verification
 
 ### subscription_lib
+
 ```bash
 cd subscription_lib
 bun test                    # New hook tests pass
@@ -360,6 +378,7 @@ bun run build               # Builds successfully
 ```
 
 ### subscription_pages
+
 ```bash
 cd subscription_pages
 bun install
@@ -370,6 +389,7 @@ bun run build               # Vite library build succeeds
 ```
 
 ### subscription_pages_rn
+
 ```bash
 cd subscription_pages_rn
 bun install

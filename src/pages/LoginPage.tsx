@@ -9,8 +9,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
+import { SEO } from '@sudobility/seo_lib';
 import { LoginPage as LoginPageComponent } from '@sudobility/building_blocks';
 import { CONSTANTS } from '../config/constants';
+import { seoConfig } from '../config/seo';
 
 /**
  * Authentication page supporting email/password sign-in, sign-up,
@@ -52,19 +54,27 @@ export default function LoginPage() {
   }
 
   return (
-    <LoginPageComponent
-      appName={CONSTANTS.APP_NAME}
-      logo={<img src="/logo.png" alt={CONSTANTS.APP_NAME} className="h-12" />}
-      onEmailSignIn={async (email, password) => {
-        await signInWithEmailAndPassword(auth, email, password);
-      }}
-      onEmailSignUp={async (email, password) => {
-        await createUserWithEmailAndPassword(auth, email, password);
-      }}
-      onGoogleSignIn={async () => {
-        await signInWithPopup(auth, new GoogleAuthProvider());
-      }}
-      onSuccess={() => navigate(`/${lang || 'en'}/dashboard`, { replace: true })}
-    />
+    <>
+      <SEO
+        config={seoConfig}
+        title="Login"
+        description={`Sign in to ${CONSTANTS.APP_NAME}`}
+        canonical={`/${lang || 'en'}/login`}
+      />
+      <LoginPageComponent
+        appName={CONSTANTS.APP_NAME}
+        logo={<img src="/logo.png" alt={CONSTANTS.APP_NAME} className="h-12" />}
+        onEmailSignIn={async (email, password) => {
+          await signInWithEmailAndPassword(auth, email, password);
+        }}
+        onEmailSignUp={async (email, password) => {
+          await createUserWithEmailAndPassword(auth, email, password);
+        }}
+        onGoogleSignIn={async () => {
+          await signInWithPopup(auth, new GoogleAuthProvider());
+        }}
+        onSuccess={() => navigate(`/${lang || 'en'}/dashboard`, { replace: true })}
+      />
+    </>
   );
 }

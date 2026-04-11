@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Débutant",
+    "tagline": "Un projet modèle illustrant le patron d'architecture Sudobility."
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "docs": "Documentation",
+    "histories": "Histoires",
+    "settings": "Paramètres",
+    "sitemap": "Plan du site",
+    "login": "Se connecter",
+    "privacy": "Confidentialité",
+    "terms": "Conditions"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

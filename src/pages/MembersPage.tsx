@@ -1,9 +1,11 @@
 import { MembersManagementPage } from '@sudobility/entity_pages';
+import { SEO } from '@sudobility/seo_lib';
 import { useEntityClient } from '../config/entityClient';
 import { useAuthStatus } from '@sudobility/auth-components';
 import { useCurrentEntity } from '@sudobility/entity_client';
 import { Section } from '@sudobility/components';
 import { variants } from '@sudobility/design';
+import { seoConfig } from '../config/seo';
 
 function MembersPage() {
   const entityClient = useEntityClient();
@@ -25,7 +27,14 @@ function MembersPage() {
   }
 
   return (
-    <MembersManagementPage client={entityClient} entity={currentEntity} currentUserId={user.uid} />
+    <>
+      <SEO config={seoConfig} title="Members" noIndex />
+      <MembersManagementPage
+        client={entityClient}
+        entity={currentEntity}
+        currentUserId={user.uid}
+      />
+    </>
   );
 }
 

@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "مُبْتَدِئ",
+    "tagline": "مشروع نموذج يوضح نمط بنية سودوبيليتي."
+  },
+  "breadcrumbs": {
+    "home": "الصفحة الرئيسية",
+    "docs": "توثيق",
+    "histories": "تاريخ",
+    "settings": "الإعدادات",
+    "sitemap": "خريطة الموقع",
+    "login": "تسجيل الدخول",
+    "privacy": "الخصوصية",
+    "terms": "الشروط"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

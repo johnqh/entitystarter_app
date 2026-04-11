@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useAuthStatus } from '@sudobility/auth-components';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
+import { SEO } from '@sudobility/seo_lib';
 import { Section } from '@sudobility/components';
 import { buttonVariant, variants, ui, colors } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { formatDateTime } from '../utils/formatDateTime';
+import { seoConfig } from '../config/seo';
 
 /**
  * Page displaying the user's history entries with stats, a creation form,
@@ -43,10 +45,7 @@ export default function HistoriesPage() {
             {t('histories.title')}
           </h1>
           <p className="text-theme-text-secondary mb-6">{t('histories.loginPrompt')}</p>
-          <LocalizedLink
-            to="/login"
-            className={`px-6 py-3 rounded-lg ${buttonVariant('primary')}`}
-          >
+          <LocalizedLink to="/login" className={`px-6 py-3 rounded-lg ${buttonVariant('primary')}`}>
             {t('nav.login')}
           </LocalizedLink>
         </div>
@@ -94,6 +93,7 @@ export default function HistoriesPage() {
 
   return (
     <Section spacing="md">
+      <SEO config={seoConfig} title={t('histories.title')} noIndex />
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-theme-text-primary">{t('histories.title')}</h1>
         <button

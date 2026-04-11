@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "启动",
+    "tagline": "一个演示Sudobility架构模式的模板项目。"
+  },
+  "breadcrumbs": {
+    "home": "首页",
+    "docs": "文档",
+    "histories": "历史",
+    "settings": "设置",
+    "sitemap": "网站地图",
+    "login": "登录",
+    "privacy": "隐私",
+    "terms": "条款"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

@@ -1,6 +1,8 @@
 import { InvitationsPage as InvitationsPageComponent } from '@sudobility/entity_pages';
+import { SEO } from '@sudobility/seo_lib';
 import { useEntityClient } from '../config/entityClient';
 import { useQueryClient } from '@tanstack/react-query';
+import { seoConfig } from '../config/seo';
 
 function InvitationsPage() {
   const entityClient = useEntityClient();
@@ -11,10 +13,13 @@ function InvitationsPage() {
   };
 
   return (
-    <InvitationsPageComponent
-      client={entityClient}
-      onInvitationAccepted={handleInvitationAccepted}
-    />
+    <>
+      <SEO config={seoConfig} title="Invitations" noIndex />
+      <InvitationsPageComponent
+        client={entityClient}
+        onInvitationAccepted={handleInvitationAccepted}
+      />
+    </>
   );
 }
 

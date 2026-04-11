@@ -1,6 +1,8 @@
 import { GlobalSettingsPage } from '@sudobility/building_blocks';
+import { SEO } from '@sudobility/seo_lib';
 import { useTheme } from '@sudobility/components';
 import { useSetPageConfig } from '../hooks/usePageConfig';
+import { seoConfig } from '../config/seo';
 
 /** User settings page for theme and font size preferences. */
 export default function SettingsPage() {
@@ -9,11 +11,14 @@ export default function SettingsPage() {
   useSetPageConfig({ scrollable: false, contentPadding: 'sm', maxWidth: '7xl' });
 
   return (
-    <GlobalSettingsPage
-      theme={theme}
-      fontSize={fontSize}
-      onThemeChange={setTheme}
-      onFontSizeChange={setFontSize}
-    />
+    <>
+      <SEO config={seoConfig} title="Settings" noIndex />
+      <GlobalSettingsPage
+        theme={theme}
+        fontSize={fontSize}
+        onThemeChange={setTheme}
+        onFontSizeChange={setFontSize}
+      />
+    </>
   );
 }

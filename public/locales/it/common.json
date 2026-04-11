@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Iniziatore",
+    "tagline": "Un progetto modello che dimostra il pattern architetturale Sudobility."
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "docs": "Documentazione",
+    "histories": "Storie",
+    "settings": "Impostazioni",
+    "sitemap": "Mappa del sito",
+    "login": "Accedi",
+    "privacy": "Privacy",
+    "terms": "Termini"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

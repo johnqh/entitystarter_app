@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Starter",
+    "tagline": "Ein Vorlagenprojekt, das das Sudobility-Architekturmuster demonstriert."
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "docs": "Dokumentation",
+    "histories": "Geschichten",
+    "settings": "Einstellungen",
+    "sitemap": "Sitemap",
+    "login": "Anmelden",
+    "privacy": "Datenschutz",
+    "terms": "Allgemeine Geschäftsbedingungen"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

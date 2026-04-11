@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "スターター",
+    "tagline": "Sudobilityアーキテクチャパターンを示すテンプレートプロジェクト。"
+  },
+  "breadcrumbs": {
+    "home": "ホーム",
+    "docs": "ドキュメント",
+    "histories": "歴史",
+    "settings": "設定",
+    "sitemap": "サイトマップ",
+    "login": "ログイン",
+    "privacy": "プライバシー",
+    "terms": "利用規約"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

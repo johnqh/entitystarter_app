@@ -1,4 +1,18 @@
 {
+  "app": {
+    "name": "Стартер",
+    "tagline": "Шаблонний проект, що демонструє архітектурний патерн Sudobility"
+  },
+  "breadcrumbs": {
+    "home": "Головна",
+    "docs": "Документація",
+    "histories": "Історії",
+    "settings": "Налаштування",
+    "sitemap": "Карта сайту",
+    "login": "Увійти",
+    "privacy": "Приватність",
+    "terms": "Умови"
+  },
   "nav": {
     "home": "Home",
     "docs": "Documentation",

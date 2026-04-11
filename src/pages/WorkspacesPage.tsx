@@ -1,8 +1,10 @@
 import { EntityListPage } from '@sudobility/entity_pages';
+import { SEO } from '@sudobility/seo_lib';
 import { useEntityClient } from '../config/entityClient';
 import { useLocalizedNavigate } from '../hooks/useLocalizedNavigate';
 import type { EntityWithRole } from '@sudobility/entity_client';
 import { useSetPageConfig } from '../hooks/usePageConfig';
+import { seoConfig } from '../config/seo';
 
 const LAST_ENTITY_KEY = 'entitystarter_last_entity';
 
@@ -17,7 +19,12 @@ function WorkspacesPage() {
     navigate(`/dashboard/${entity.entitySlug}`);
   };
 
-  return <EntityListPage client={entityClient} onSelectEntity={handleSelectEntity} />;
+  return (
+    <>
+      <SEO config={seoConfig} title="Workspaces" noIndex />
+      <EntityListPage client={entityClient} onSelectEntity={handleSelectEntity} />
+    </>
+  );
 }
 
 export default WorkspacesPage;

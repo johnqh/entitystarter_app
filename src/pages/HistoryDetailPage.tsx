@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
+import { SEO } from '@sudobility/seo_lib';
 import { Section } from '@sudobility/components';
 import { buttonVariant, variants, colors } from '@sudobility/design';
 import { useLocalizedNavigate } from '../hooks/useLocalizedNavigate';
 import { formatDateTime } from '../utils/formatDateTime';
+import { seoConfig } from '../config/seo';
 
 /**
  * Detail view for a single history entry. Shows the datetime, value,
@@ -72,6 +74,7 @@ export default function HistoryDetailPage() {
 
   return (
     <Section spacing="md" maxWidth="lg">
+      <SEO config={seoConfig} title={t('histories.detail')} noIndex />
       <h1 className="text-2xl font-bold text-theme-text-primary mb-6">{t('histories.detail')}</h1>
 
       {deleteError && (

@@ -82,44 +82,44 @@ These shared libraries provide infrastructure so you don't rebuild common functi
 
 ### Universal (Backend + Frontend)
 
-| Package | Purpose |
-|---------|---------|
+| Package             | Purpose                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | `@sudobility/types` | Base types: `ApiResponse`, `BaseResponse`, `Optional`, `PaginatedResponse`, `successResponse()`, `errorResponse()` |
 
 ### Backend Only
 
-| Package | Purpose |
-|---------|---------|
-| `@sudobility/auth_service` | Firebase Admin auth helpers, JWT verification middleware |
-| `@sudobility/entity_service` | Entity (organization) management, member roles, permissions |
-| `@sudobility/ratelimit_service` | Rate limiting with `EntitlementHelper`, `RateLimitChecker` |
-| `@sudobility/subscription_service` | RevenueCat subscription verification, `SubscriptionHelper` |
+| Package                            | Purpose                                                     |
+| ---------------------------------- | ----------------------------------------------------------- |
+| `@sudobility/auth_service`         | Firebase Admin auth helpers, JWT verification middleware    |
+| `@sudobility/entity_service`       | Entity (organization) management, member roles, permissions |
+| `@sudobility/ratelimit_service`    | Rate limiting with `EntitlementHelper`, `RateLimitChecker`  |
+| `@sudobility/subscription_service` | RevenueCat subscription verification, `SubscriptionHelper`  |
 
 ### Web Frontend
 
-| Package | Purpose |
-|---------|---------|
-| `@sudobility/design_system` | Design tokens, color system |
-| `@sudobility/di` | Dependency injection interfaces |
-| `@sudobility/di_web` | Web DI implementations (Firebase, analytics, network) |
-| `@sudobility/components` | Shared UI components (ThemeProvider, LanguageValidator, PerformancePanel, etc.) |
-| `@sudobility/building_blocks` | App wrappers: `SudobilityApp`, `SudobilityAppWithFirebaseAuth`, `SudobilityAppWithFirebaseAuthAndEntities` |
-| `@sudobility/entity_client` | Entity management React hooks |
-| `@sudobility/entity_pages` | Entity management UI pages |
-| `@sudobility/ratelimit_client` | Rate limit React hooks |
-| `@sudobility/ratelimit_pages` | Rate limit UI pages |
-| `@sudobility/subscription-components` | Paywall and subscription UI |
-| `@sudobility/auth-components` | Auth UI components |
-| `@sudobility/auth_lib` | Auth utility hooks |
-| `@sudobility/devops-components` | NetworkProvider, network status |
+| Package                               | Purpose                                                                                                    |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `@sudobility/design_system`           | Design tokens, color system                                                                                |
+| `@sudobility/di`                      | Dependency injection interfaces                                                                            |
+| `@sudobility/di_web`                  | Web DI implementations (Firebase, analytics, network)                                                      |
+| `@sudobility/components`              | Shared UI components (ThemeProvider, LanguageValidator, PerformancePanel, etc.)                            |
+| `@sudobility/building_blocks`         | App wrappers: `SudobilityApp`, `SudobilityAppWithFirebaseAuth`, `SudobilityAppWithFirebaseAuthAndEntities` |
+| `@sudobility/entity_client`           | Entity management React hooks                                                                              |
+| `@sudobility/entity_pages`            | Entity management UI pages                                                                                 |
+| `@sudobility/ratelimit_client`        | Rate limit React hooks                                                                                     |
+| `@sudobility/ratelimit_pages`         | Rate limit UI pages                                                                                        |
+| `@sudobility/subscription-components` | Paywall and subscription UI                                                                                |
+| `@sudobility/auth-components`         | Auth UI components                                                                                         |
+| `@sudobility/auth_lib`                | Auth utility hooks                                                                                         |
+| `@sudobility/devops-components`       | NetworkProvider, network status                                                                            |
 
 ### React Native
 
-| Package | Purpose |
-|---------|---------|
-| `@sudobility/di_rn` | React Native DI implementations |
-| `@sudobility/components_rn` | React Native shared components |
-| `@sudobility/building_blocks_rn` | React Native app wrappers |
+| Package                          | Purpose                         |
+| -------------------------------- | ------------------------------- |
+| `@sudobility/di_rn`              | React Native DI implementations |
+| `@sudobility/components_rn`      | React Native shared components  |
+| `@sudobility/building_blocks_rn` | React Native app wrappers       |
 
 ---
 
@@ -128,6 +128,7 @@ These shared libraries provide infrastructure so you don't rebuild common functi
 The types package is the **contract** between frontend and backend. Changes flow from here.
 
 ### Tech Stack
+
 - TypeScript, Zod
 - Dual ESM/CJS output for maximum compatibility
 - Published to npm as `@sudobility/{project}_types`
@@ -241,14 +242,14 @@ The API server handles all backend logic, database access, and authentication.
 
 ### Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **Bun** | Runtime |
-| **Hono** | Web framework (lightweight, typed) |
-| **PostgreSQL** | Database (always use Postgres for SQL) |
-| **Drizzle ORM** | Type-safe SQL ORM |
-| **Firebase Admin SDK** | JWT authentication |
-| **Zod** | Request validation |
+| Technology             | Purpose                                |
+| ---------------------- | -------------------------------------- |
+| **Bun**                | Runtime                                |
+| **Hono**               | Web framework (lightweight, typed)     |
+| **PostgreSQL**         | Database (always use Postgres for SQL) |
+| **Drizzle ORM**        | Type-safe SQL ORM                      |
+| **Firebase Admin SDK** | JWT authentication                     |
+| **Zod**                | Request validation                     |
 
 ### Structure
 
@@ -295,7 +296,7 @@ app.use('*', logger());
 app.use('*', cors());
 
 // Health check
-app.get('/health', (c) => c.json({ status: 'ok' }));
+app.get('/health', c => c.json({ status: 'ok' }));
 
 // Mount API routes
 app.route('/api/v1', routes);
@@ -367,7 +368,7 @@ import { projectCreateSchema } from '../schemas';
 const router = new Hono();
 
 // GET /entities/:entitySlug/projects
-router.get('/', async (c) => {
+router.get('/', async c => {
   const entitySlug = c.req.param('entitySlug');
   const db = getDb();
   const results = await db.select().from(projects).where(eq(projects.entity_id, entitySlug));
@@ -375,7 +376,7 @@ router.get('/', async (c) => {
 });
 
 // POST /entities/:entitySlug/projects
-router.post('/', zValidator('json', projectCreateSchema), async (c) => {
+router.post('/', zValidator('json', projectCreateSchema), async c => {
   const body = c.req.valid('json');
   const db = getDb();
   const [created] = await db.insert(projects).values(body).returning();
@@ -497,11 +498,11 @@ The client package provides typed HTTP methods and React Query hooks. It must be
 
 ### Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
+| Technology           | Purpose                           |
+| -------------------- | --------------------------------- |
 | **TanStack Query 5** | Data fetching, caching, mutations |
-| **React 19** | Peer dependency |
-| **TypeScript** | Type safety |
+| **React 19**         | Peer dependency                   |
+| **TypeScript**       | Type safety                       |
 
 ### Structure
 
@@ -570,7 +571,10 @@ export class MyProjectClient {
     return this.request(`/api/v1/entities/${entitySlug}/projects`);
   }
 
-  async createProject(entitySlug: string, data: ProjectCreateRequest): Promise<BaseResponse<Project>> {
+  async createProject(
+    entitySlug: string,
+    data: ProjectCreateRequest
+  ): Promise<BaseResponse<Project>> {
     return this.request(`/api/v1/entities/${entitySlug}/projects`, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -669,11 +673,11 @@ The lib package sits between `client` (data fetching) and `app` (UI). It contain
 
 ### Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **Zustand 5** | Lightweight state management |
+| Technology           | Purpose                            |
+| -------------------- | ---------------------------------- |
+| **Zustand 5**        | Lightweight state management       |
 | **TanStack Query 5** | Peer dependency (used by managers) |
-| **React 19** | Peer dependency |
+| **React 19**         | Peer dependency                    |
 
 ### Structure
 
@@ -725,17 +729,17 @@ export const useProjectsStore = create<ProjectState>((set, get) => ({
   cache: {},
 
   setProjects: (entitySlug, projects) =>
-    set((state) => ({
+    set(state => ({
       cache: {
         ...state.cache,
         [entitySlug]: { projects, cachedAt: Date.now() },
       },
     })),
 
-  getProjects: (entitySlug) => get().cache[entitySlug]?.projects,
+  getProjects: entitySlug => get().cache[entitySlug]?.projects,
 
   addProject: (entitySlug, project) =>
-    set((state) => {
+    set(state => {
       const existing = state.cache[entitySlug]?.projects ?? [];
       return {
         cache: {
@@ -746,13 +750,13 @@ export const useProjectsStore = create<ProjectState>((set, get) => ({
     }),
 
   removeProject: (entitySlug, projectId) =>
-    set((state) => {
+    set(state => {
       const existing = state.cache[entitySlug]?.projects ?? [];
       return {
         cache: {
           ...state.cache,
           [entitySlug]: {
-            projects: existing.filter((p) => p.uuid !== projectId),
+            projects: existing.filter(p => p.uuid !== projectId),
             cachedAt: Date.now(),
           },
         },
@@ -760,13 +764,13 @@ export const useProjectsStore = create<ProjectState>((set, get) => ({
     }),
 
   updateProject: (entitySlug, projectId, project) =>
-    set((state) => {
+    set(state => {
       const existing = state.cache[entitySlug]?.projects ?? [];
       return {
         cache: {
           ...state.cache,
           [entitySlug]: {
-            projects: existing.map((p) => (p.uuid === projectId ? project : p)),
+            projects: existing.map(p => (p.uuid === projectId ? project : p)),
             cachedAt: Date.now(),
           },
         },
@@ -798,10 +802,7 @@ export function useProjectManager(config: UseProjectManagerConfig) {
   const { baseUrl, getIdToken, entitySlug } = config;
 
   // Memoize client to prevent re-creation
-  const client = useMemo(
-    () => new MyProjectClient({ baseUrl, getIdToken }),
-    [baseUrl, getIdToken],
-  );
+  const client = useMemo(() => new MyProjectClient({ baseUrl, getIdToken }), [baseUrl, getIdToken]);
 
   // TanStack Query hooks
   const projectsQuery = useProjects(client, entitySlug);
@@ -820,7 +821,7 @@ export function useProjectManager(config: UseProjectManagerConfig) {
 
   // Return unified interface
   return {
-    projects: useProjectsStore((state) => state.getProjects(entitySlug)) ?? [],
+    projects: useProjectsStore(state => state.getProjects(entitySlug)) ?? [],
     isLoading: projectsQuery.isLoading,
     error: projectsQuery.error?.message ?? null,
     createProject: createMutation.mutateAsync,
@@ -861,15 +862,15 @@ The web app is a React SPA built with Vite.
 
 ### Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **React 19** | UI framework |
-| **Vite** | Build tool |
-| **Tailwind CSS** | Styling |
-| **React Router v7** | Client-side routing |
-| **Firebase** | Authentication |
-| **i18next** | Internationalization |
-| **RevenueCat** | Subscription management |
+| Technology          | Purpose                 |
+| ------------------- | ----------------------- |
+| **React 19**        | UI framework            |
+| **Vite**            | Build tool              |
+| **Tailwind CSS**    | Styling                 |
+| **React Router v7** | Client-side routing     |
+| **Firebase**        | Authentication          |
+| **i18next**         | Internationalization    |
+| **RevenueCat**      | Subscription management |
 
 ### Structure
 
@@ -1087,8 +1088,22 @@ export default App;
 ```typescript
 // src/config/constants.ts
 export const SUPPORTED_LANGUAGES = [
-  'en', 'ar', 'de', 'es', 'fr', 'it', 'ja', 'ko',
-  'pt', 'ru', 'sv', 'th', 'uk', 'vi', 'zh', 'zh-hant',
+  'en',
+  'ar',
+  'de',
+  'es',
+  'fr',
+  'it',
+  'ja',
+  'ko',
+  'pt',
+  'ru',
+  'sv',
+  'th',
+  'uk',
+  'vi',
+  'zh',
+  'zh-hant',
 ] as const;
 
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
@@ -1140,8 +1155,12 @@ export default defineConfig({
   },
   resolve: {
     dedupe: [
-      'react', 'react-dom', 'react-helmet-async',
-      'zustand', '@tanstack/react-query', 'firebase',
+      'react',
+      'react-dom',
+      'react-helmet-async',
+      'zustand',
+      '@tanstack/react-query',
+      'firebase',
     ],
   },
 });
@@ -1218,14 +1237,14 @@ The React Native app shares `{project}_client`, `{project}_lib`, and `{project}_
 
 ### Key Differences from Web App
 
-| Concern | Web | React Native |
-|---------|-----|--------------|
-| Build tool | Vite | Metro/Expo |
-| Routing | React Router | React Navigation |
-| Styling | Tailwind CSS | React Native StyleSheet |
+| Concern     | Web                           | React Native                     |
+| ----------- | ----------------------------- | -------------------------------- |
+| Build tool  | Vite                          | Metro/Expo                       |
+| Routing     | React Router                  | React Navigation                 |
+| Styling     | Tailwind CSS                  | React Native StyleSheet          |
 | App wrapper | `@sudobility/building_blocks` | `@sudobility/building_blocks_rn` |
-| DI | `@sudobility/di_web` | `@sudobility/di_rn` |
-| Components | `@sudobility/components` | `@sudobility/components_rn` |
+| DI          | `@sudobility/di_web`          | `@sudobility/di_rn`              |
+| Components  | `@sudobility/components`      | `@sudobility/components_rn`      |
 
 ### Shared Code
 
@@ -1452,13 +1471,13 @@ const response = await fetch(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${SHAPESHYFT_API_KEY}`,
+      Authorization: `Bearer ${SHAPESHYFT_API_KEY}`,
     },
     body: JSON.stringify({
       prompt: 'Classify this text: ...',
       // or pass structured input matching your endpoint config
     }),
-  },
+  }
 );
 
 const result = await response.json();
@@ -1493,13 +1512,13 @@ The dashboard URL follows: `/:lang/dashboard/:entitySlug/page`
 
 ### State Management Hierarchy
 
-| Layer | Tool | Use Case |
-|-------|------|----------|
-| Server state | TanStack Query | API data, caching, background refetch |
-| Client state | Zustand stores | Cached data, UI selections, filters |
-| Business logic | Manager hooks | Bridge query → store, expose unified API |
-| User preferences | React Context | Theme, settings |
-| Local/UI state | `useState` | Form inputs, toggles, modals |
+| Layer            | Tool           | Use Case                                 |
+| ---------------- | -------------- | ---------------------------------------- |
+| Server state     | TanStack Query | API data, caching, background refetch    |
+| Client state     | Zustand stores | Cached data, UI selections, filters      |
+| Business logic   | Manager hooks  | Bridge query → store, expose unified API |
+| User preferences | React Context  | Theme, settings                          |
+| Local/UI state   | `useState`     | Form inputs, toggles, modals             |
 
 ### Response Format
 
@@ -1557,24 +1576,24 @@ const ProjectsPage = lazy(() => import('./pages/dashboard/ProjectsPage'));
 
 Every web app should include:
 
-| Page | Path | Description |
-|------|------|-------------|
-| Home | `/` | Landing page |
-| Login | `/login` | Authentication |
-| Pricing | `/pricing` | Pricing tiers (uses `@sudobility/subscription-components`) |
-| Docs | `/docs` | Documentation |
-| Settings | `/settings` | App-level settings (theme, language, font size) |
-| Privacy | `/privacy` | Privacy policy |
-| Terms | `/terms` | Terms of service |
-| Cookies | `/cookies` | Cookie policy |
-| Sitemap | `/sitemap` | Sitemap |
-| Dashboard | `/dashboard/:entitySlug` | Protected dashboard |
-| Subscription | `/dashboard/:entitySlug/subscription` | Subscription management |
-| Rate Limits | `/dashboard/:entitySlug/rate-limits` | Rate limit status |
-| Workspaces | `/dashboard/:entitySlug/workspaces` | Entity management |
-| Members | `/dashboard/:entitySlug/members` | Member management |
-| Invitations | `/dashboard/:entitySlug/invitations` | Invitation management |
-| Settings (Dashboard) | `/dashboard/:entitySlug/settings` | Entity settings |
+| Page                 | Path                                  | Description                                                |
+| -------------------- | ------------------------------------- | ---------------------------------------------------------- |
+| Home                 | `/`                                   | Landing page                                               |
+| Login                | `/login`                              | Authentication                                             |
+| Pricing              | `/pricing`                            | Pricing tiers (uses `@sudobility/subscription-components`) |
+| Docs                 | `/docs`                               | Documentation                                              |
+| Settings             | `/settings`                           | App-level settings (theme, language, font size)            |
+| Privacy              | `/privacy`                            | Privacy policy                                             |
+| Terms                | `/terms`                              | Terms of service                                           |
+| Cookies              | `/cookies`                            | Cookie policy                                              |
+| Sitemap              | `/sitemap`                            | Sitemap                                                    |
+| Dashboard            | `/dashboard/:entitySlug`              | Protected dashboard                                        |
+| Subscription         | `/dashboard/:entitySlug/subscription` | Subscription management                                    |
+| Rate Limits          | `/dashboard/:entitySlug/rate-limits`  | Rate limit status                                          |
+| Workspaces           | `/dashboard/:entitySlug/workspaces`   | Entity management                                          |
+| Members              | `/dashboard/:entitySlug/members`      | Member management                                          |
+| Invitations          | `/dashboard/:entitySlug/invitations`  | Invitation management                                      |
+| Settings (Dashboard) | `/dashboard/:entitySlug/settings`     | Entity settings                                            |
 
 ---
 
