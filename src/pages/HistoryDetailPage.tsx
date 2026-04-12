@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useApi } from '@sudobility/building_blocks/firebase';
@@ -9,6 +9,7 @@ import { buttonVariant, variants, colors } from '@sudobility/design';
 import { useLocalizedNavigate } from '../hooks/useLocalizedNavigate';
 import { formatDateTime } from '../utils/formatDateTime';
 import { seoConfig } from '../config/seo';
+import { analyticsService } from '../config/analytics';
 
 /**
  * Detail view for a single history entry. Shows the datetime, value,
@@ -30,6 +31,10 @@ export default function HistoryDetailPage() {
   const [deleteError, setDeleteError] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  useEffect(() => {
+    analyticsService.trackPageView(`/histories/${historyId}`, 'HistoryDetail');
+  }, [historyId]);
 
   const history = histories.find(h => h.id === historyId);
 
@@ -61,10 +66,13 @@ export default function HistoryDetailPage() {
     setDeleteError(null);
     try {
       setIsDeleting(true);
+      analyticsService.trackButtonClick('delete_history');
       await deleteHistory(history.id);
+      analyticsService.trackEvent('history_deleted');
       navigate(`/dashboard/${entitySlug}/histories`);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to delete history entry.';
+      analyticsService.trackError(message, 'delete_history_error');
       setDeleteError(message);
       setShowDeleteConfirm(false);
     } finally {

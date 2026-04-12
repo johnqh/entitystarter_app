@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStatus } from '@sudobility/auth-components';
@@ -10,6 +10,7 @@ import { buttonVariant, variants, ui, colors } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { formatDateTime } from '../utils/formatDateTime';
 import { seoConfig } from '../config/seo';
+import { analyticsService } from '../config/analytics';
 
 /**
  * Page displaying the user's history entries with stats, a creation form,
@@ -33,6 +34,10 @@ export default function HistoriesPage() {
   const [value, setValue] = useState('');
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    analyticsService.trackPageView('/histories', 'Histories');
+  }, []);
 
   /** Sum of all user history values, computed once per histories change. */
   const userTotal = useMemo(() => histories.reduce((sum, h) => sum + h.value, 0), [histories]);
@@ -73,15 +78,18 @@ export default function HistoriesPage() {
 
     try {
       setIsSubmitting(true);
+      analyticsService.trackButtonClick('submit_history', { value: numericValue });
       await createHistory({
         datetime: parsedDate.toISOString(),
         value: numericValue,
       });
+      analyticsService.trackEvent('history_created');
       setDatetime('');
       setValue('');
       setShowForm(false);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to create history entry.';
+      analyticsService.trackError(message, 'create_history_error');
       setSubmitError(message);
     } finally {
       setIsSubmitting(false);
@@ -98,6 +106,7 @@ export default function HistoriesPage() {
         <h1 className="text-2xl font-bold text-theme-text-primary">{t('histories.title')}</h1>
         <button
           onClick={() => {
+            analyticsService.trackButtonClick(showForm ? 'cancel_add_history' : 'add_history');
             setShowForm(!showForm);
             setSubmitError(null);
           }}

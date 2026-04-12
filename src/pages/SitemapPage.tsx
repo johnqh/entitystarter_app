@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { SEO } from '@sudobility/seo_lib';
@@ -6,6 +7,7 @@ import { ui } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { SUPPORTED_LANGUAGES } from '../config/constants';
 import { seoConfig } from '../config/seo';
+import { analyticsService } from '../config/analytics';
 
 const LANGUAGE_INFO: Record<string, { label: string; flag: string }> = {
   en: { label: 'English', flag: '🇺🇸' },
@@ -30,6 +32,10 @@ const LANGUAGE_INFO: Record<string, { label: string; flag: string }> = {
 export default function SitemapPage() {
   const { t } = useTranslation('common');
   const { lang } = useParams<{ lang: string }>();
+
+  useEffect(() => {
+    analyticsService.trackPageView('/sitemap', 'Sitemap');
+  }, []);
 
   return (
     <Section spacing="md">

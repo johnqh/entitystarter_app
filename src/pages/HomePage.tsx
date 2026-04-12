@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { SEO } from '@sudobility/seo_lib';
@@ -5,11 +6,16 @@ import { Section } from '@sudobility/components';
 import { buttonVariant } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { seoConfig } from '../config/seo';
+import { analyticsService } from '../config/analytics';
 
 /** Landing page showcasing the application's key features and entry points. */
 export default function HomePage() {
   const { t } = useTranslation('common');
   const { lang } = useParams<{ lang: string }>();
+
+  useEffect(() => {
+    analyticsService.trackPageView('/', 'Home');
+  }, []);
 
   return (
     <>

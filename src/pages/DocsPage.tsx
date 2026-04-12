@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { SEO } from '@sudobility/seo_lib';
@@ -6,6 +6,7 @@ import { MasterDetailLayout } from '@sudobility/components';
 import { ui } from '@sudobility/design';
 import { useSetPageConfig } from '../hooks/usePageConfig';
 import { seoConfig } from '../config/seo';
+import { analyticsService } from '../config/analytics';
 
 const SECTIONS = [
   { id: 'overview', label: 'Overview' },
@@ -67,6 +68,10 @@ export default function DocsPage() {
 
   useSetPageConfig({ scrollable: false, contentPadding: 'sm', maxWidth: '7xl' });
 
+  useEffect(() => {
+    analyticsService.trackPageView('/docs', 'Docs');
+  }, []);
+
   const doc = DOCS_CONTENT[activeSection] || DOCS_CONTENT.overview;
 
   const masterContent = (
@@ -78,6 +83,7 @@ export default function DocsPage() {
             aria-selected={activeSection === section.id}
             aria-controls="docs-content"
             onClick={() => {
+              analyticsService.trackButtonClick('docs_section', { section: section.id });
               setActiveSection(section.id);
               setMobileView('content');
             }}

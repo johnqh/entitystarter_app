@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import type { ErrorInfo, ReactNode } from 'react';
 import { buttonVariant } from '@sudobility/design';
+import { analyticsService } from '../config/analytics';
 
 interface ErrorBoundaryProps {
   /** Content to render when no error has occurred. */
@@ -35,6 +36,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    analyticsService.trackError(error.message, error.name);
     console.error('[ErrorBoundary] Caught error:', error, errorInfo);
     this.props.onError?.(error, errorInfo);
   }

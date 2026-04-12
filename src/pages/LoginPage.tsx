@@ -13,6 +13,7 @@ import { SEO } from '@sudobility/seo_lib';
 import { LoginPage as LoginPageComponent } from '@sudobility/building_blocks';
 import { CONSTANTS } from '../config/constants';
 import { seoConfig } from '../config/seo';
+import { analyticsService } from '../config/analytics';
 
 /**
  * Authentication page supporting email/password sign-in, sign-up,
@@ -24,6 +25,10 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const { lang } = useParams<{ lang: string }>();
   const auth = getFirebaseAuth();
+
+  useEffect(() => {
+    analyticsService.trackPageView('/login', 'Login');
+  }, []);
 
   useEffect(() => {
     if (!loading && user) {
@@ -65,15 +70,21 @@ export default function LoginPage() {
         appName={CONSTANTS.APP_NAME}
         logo={<img src="/logo.png" alt={CONSTANTS.APP_NAME} className="h-12" />}
         onEmailSignIn={async (email, password) => {
+          analyticsService.trackButtonClick('email_sign_in');
           await signInWithEmailAndPassword(auth, email, password);
         }}
         onEmailSignUp={async (email, password) => {
+          analyticsService.trackButtonClick('email_sign_up');
           await createUserWithEmailAndPassword(auth, email, password);
         }}
         onGoogleSignIn={async () => {
+          analyticsService.trackButtonClick('google_sign_in');
           await signInWithPopup(auth, new GoogleAuthProvider());
         }}
-        onSuccess={() => navigate(`/${lang || 'en'}/dashboard`, { replace: true })}
+        onSuccess={() => {
+          analyticsService.trackEvent('login_success');
+          navigate(`/${lang || 'en'}/dashboard`, { replace: true });
+        }}
       />
     </>
   );
