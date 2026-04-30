@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { SEO } from '@sudobility/seo_lib';
+import { SEO, useSEOUpdate } from '@sudobility/seo_lib';
 import { MasterDetailLayout } from '@sudobility/components';
 import { ui } from '@sudobility/design';
 import { useSetPageConfig } from '../hooks/usePageConfig';
@@ -74,6 +74,13 @@ export default function DocsPage() {
 
   const doc = DOCS_CONTENT[activeSection] || DOCS_CONTENT.overview;
 
+  // React 19 + react-helmet-async workaround
+  useSEOUpdate({
+    title: doc.title,
+    description: doc.content.slice(0, 160),
+    appName: seoConfig.appName,
+  });
+
   const masterContent = (
     <ul className="space-y-1" role="tablist" aria-orientation="vertical">
       {SECTIONS.map(section => (
@@ -111,9 +118,10 @@ export default function DocsPage() {
     <div className="w-full min-w-0 overflow-x-hidden flex-1 flex flex-col min-h-0">
       <SEO
         config={seoConfig}
-        title={t('docs.title')}
-        description="Technical documentation for the Starter project ecosystem"
+        title={doc.title}
+        description={doc.content.slice(0, 160)}
         canonical={`/${lang || 'en'}/docs`}
+        ogType="article"
       />
       <MasterDetailLayout
         masterTitle={t('docs.title')}
