@@ -34,6 +34,27 @@
     "feature3Title": "Zustand Stores",
     "feature3Desc": "Lightweight state management with Zustand for offline cache and business logic."
   },
+  "seo": {
+    "home": {
+      "title": "Starter - Full-Stack Architecture Template | Sudobility",
+      "description": "Build full-stack applications with the Sudobility architecture pattern. Shared types, Hono API, TanStack Query, Zustand stores, and React.",
+      "keywords": ["starter template", "full-stack typescript", "sudobility architecture", "hono api", "tanstack query", "zustand", "react template"]
+    },
+    "docs": {
+      "title": "Documentation - Starter | Sudobility",
+      "description": "Explore the Starter project documentation covering shared types, API, client, library, and app packages.",
+      "keywords": ["starter documentation", "sudobility packages", "api reference", "architecture guide"]
+    },
+    "sitemap": {
+      "title": "Sitemap - Starter | Sudobility",
+      "description": "Browse all pages and supported languages for the Starter application.",
+      "keywords": ["sitemap", "starter pages", "supported languages"]
+    },
+    "login": {
+      "title": "Sign In - Starter | Sudobility",
+      "description": "Sign in to the Starter application to manage your history entries."
+    }
+  },
   "docs": {
     "title": "Documentation"
   },

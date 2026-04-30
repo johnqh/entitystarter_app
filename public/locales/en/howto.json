@@ -1,0 +1,35 @@
+{
+  "home": {
+    "name": "How to Get Started with Starter",
+    "description": "Learn how to use the Starter app to manage your history entries and explore the Sudobility architecture pattern.",
+    "steps": [
+      {
+        "name": "Sign In or Create an Account",
+        "text": "Use your email or Google account to sign in and access your personal dashboard."
+      },
+      {
+        "name": "Browse the Documentation",
+        "text": "Explore the docs page to understand the project architecture and available packages."
+      },
+      {
+        "name": "Create Your First History Entry",
+        "text": "Navigate to the Histories page and add your first entry with a date and value."
+      },
+      {
+        "name": "Track Your Progress",
+        "text": "View your contribution stats including your total, the global total, and your percentage share."
+      }
+    ]
+  },
+  "webApp": {
+    "description": "Starter is a template project demonstrating the Sudobility architecture pattern with shared types, a Hono API, TanStack Query hooks, and Zustand stores.",
+    "features": [
+      "Full-stack TypeScript architecture",
+      "Shared type definitions across frontend and backend",
+      "TanStack Query with automatic caching",
+      "Zustand state management",
+      "Firebase authentication",
+      "16-language internationalization support"
+    ]
+  }
+}

@@ -2,7 +2,7 @@
   "name": "@sudobility/entitystarter_app",
   "private": true,
   "license": "BUSL-1.1",
-  "version": "1.0.74",
+  "version": "1.0.76",
   "type": "module",
   "scripts": {
     "dev": "bun run process:static && vite",
@@ -33,7 +33,7 @@
     "@sudobility/entitystarter_client": "^0.0.19",
     "@sudobility/entitystarter_lib": "^0.0.17",
     "@sudobility/entitystarter_types": "^0.0.17",
-    "@sudobility/seo_lib": "^0.0.14",
+    "@sudobility/seo_lib": "^0.0.16",
     "@sudobility/subscription-components": "^1.0.31",
     "@sudobility/subscription_lib": "^0.0.42",
     "@sudobility/types": "^1.9.61",

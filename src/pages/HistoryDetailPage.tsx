@@ -3,12 +3,11 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
-import { SEO } from '@sudobility/seo_lib';
 import { Section } from '@sudobility/components';
 import { buttonVariant, variants, colors } from '@sudobility/design';
 import { useLocalizedNavigate } from '../hooks/useLocalizedNavigate';
 import { formatDateTime } from '../utils/formatDateTime';
-import { seoConfig } from '../config/seo';
+import SEOHead from '../components/SEOHead';
 import { analyticsService } from '../config/analytics';
 
 /**
@@ -41,6 +40,7 @@ export default function HistoryDetailPage() {
   if (isLoading && !history) {
     return (
       <Section spacing="xl">
+        <SEOHead title={t('histories.detail')} description="" noIndex />
         <div className="text-center">
           <div
             role="status"
@@ -55,6 +55,7 @@ export default function HistoryDetailPage() {
   if (!history) {
     return (
       <Section spacing="xl">
+        <SEOHead title={t('histories.detail')} description="" noIndex />
         <div className="text-center">
           <p className="text-theme-text-secondary">{t('histories.notFound')}</p>
         </div>
@@ -82,7 +83,7 @@ export default function HistoryDetailPage() {
 
   return (
     <Section spacing="md" maxWidth="lg">
-      <SEO config={seoConfig} title={t('histories.detail')} noIndex />
+      <SEOHead title={t('histories.detail')} description="" noIndex />
       <h1 className="text-2xl font-bold text-theme-text-primary mb-6">{t('histories.detail')}</h1>
 
       {deleteError && (

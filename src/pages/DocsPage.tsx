@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
-import { SEO, useSEOUpdate } from '@sudobility/seo_lib';
 import { MasterDetailLayout } from '@sudobility/components';
 import { ui } from '@sudobility/design';
 import { useSetPageConfig } from '../hooks/usePageConfig';
-import { seoConfig } from '../config/seo';
+import SEOHead from '../components/SEOHead';
 import { analyticsService } from '../config/analytics';
 
 const SECTIONS = [
@@ -62,7 +60,6 @@ const DOCS_CONTENT: Record<string, { title: string; content: string }> = {
  */
 export default function DocsPage() {
   const { t } = useTranslation('common');
-  const { lang } = useParams<{ lang: string }>();
   const [activeSection, setActiveSection] = useState('overview');
   const [mobileView, setMobileView] = useState<'navigation' | 'content'>('navigation');
 
@@ -74,12 +71,9 @@ export default function DocsPage() {
 
   const doc = DOCS_CONTENT[activeSection] || DOCS_CONTENT.overview;
 
-  // React 19 + react-helmet-async workaround
-  useSEOUpdate({
-    title: doc.title,
-    description: doc.content.slice(0, 160),
-    appName: seoConfig.appName,
-  });
+  const seoTitle = t('seo.docs.title');
+  const seoDescription = t('seo.docs.description');
+  const seoKeywords = t('seo.docs.keywords', { returnObjects: true }) as string[];
 
   const masterContent = (
     <ul className="space-y-1" role="tablist" aria-orientation="vertical">
@@ -116,11 +110,10 @@ export default function DocsPage() {
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden flex-1 flex flex-col min-h-0">
-      <SEO
-        config={seoConfig}
-        title={doc.title}
-        description={doc.content.slice(0, 160)}
-        canonical={`/${lang || 'en'}/docs`}
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
         ogType="article"
       />
       <MasterDetailLayout

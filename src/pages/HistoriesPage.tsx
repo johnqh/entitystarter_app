@@ -4,12 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useAuthStatus } from '@sudobility/auth-components';
 import { useApi } from '@sudobility/building_blocks/firebase';
 import { useHistoriesManager } from '@sudobility/entitystarter_lib';
-import { SEO } from '@sudobility/seo_lib';
 import { Section } from '@sudobility/components';
 import { buttonVariant, variants, ui, colors } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { formatDateTime } from '../utils/formatDateTime';
-import { seoConfig } from '../config/seo';
+import SEOHead from '../components/SEOHead';
 import { analyticsService } from '../config/analytics';
 
 /**
@@ -45,6 +44,7 @@ export default function HistoriesPage() {
   if (!user) {
     return (
       <Section spacing="xl">
+        <SEOHead title={t('histories.title')} description="" noIndex />
         <div className="text-center">
           <h1 className="text-2xl font-bold text-theme-text-primary mb-4">
             {t('histories.title')}
@@ -101,7 +101,7 @@ export default function HistoriesPage() {
 
   return (
     <Section spacing="md">
-      <SEO config={seoConfig} title={t('histories.title')} noIndex />
+      <SEOHead title={t('histories.title')} description="" noIndex />
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-theme-text-primary">{t('histories.title')}</h1>
         <button
