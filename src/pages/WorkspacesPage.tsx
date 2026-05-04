@@ -5,7 +5,7 @@ import { useEntityClient } from '../config/entityClient';
 import { useLocalizedNavigate } from '../hooks/useLocalizedNavigate';
 import type { EntityWithRole } from '@sudobility/entity_client';
 import { useSetPageConfig } from '../hooks/usePageConfig';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { analyticsService } from '../config/analytics';
 
 const LAST_ENTITY_KEY = 'entitystarter_last_entity';

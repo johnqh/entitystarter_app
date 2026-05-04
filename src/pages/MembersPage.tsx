@@ -6,7 +6,7 @@ import { useAuthStatus } from '@sudobility/auth-components';
 import { useCurrentEntity } from '@sudobility/entity_client';
 import { Section } from '@sudobility/components';
 import { variants } from '@sudobility/design';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { analyticsService } from '../config/analytics';
 
 function MembersPage() {

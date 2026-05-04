@@ -12,7 +12,7 @@ import {
 } from 'firebase/auth';
 import { LoginPage as LoginPageComponent } from '@sudobility/building_blocks';
 import { CONSTANTS } from '../config/constants';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { analyticsService } from '../config/analytics';
 
 /**

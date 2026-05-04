@@ -8,7 +8,7 @@ import { Section } from '@sudobility/components';
 import { buttonVariant, variants, ui, colors } from '@sudobility/design';
 import LocalizedLink from '../components/layout/LocalizedLink';
 import { formatDateTime } from '../utils/formatDateTime';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { analyticsService } from '../config/analytics';
 
 /**

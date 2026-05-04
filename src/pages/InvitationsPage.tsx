@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { InvitationsPage as InvitationsPageComponent } from '@sudobility/entity_pages';
 import { useEntityClient } from '../config/entityClient';
 import { useQueryClient } from '@tanstack/react-query';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { analyticsService } from '../config/analytics';
 
 function InvitationsPage() {
