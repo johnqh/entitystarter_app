@@ -1,7 +1,7 @@
 import { Suspense, lazy, type ReactNode } from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { SudobilityAppWithFirebaseAuthAndEntities } from '@sudobility/building_blocks/firebase';
-import { LanguageValidator, PerformancePanel } from '@sudobility/components';
+import { LanguageValidator, LanguageRedirect, PerformancePanel } from '@sudobility/components';
 import { SEOHeadProvider } from '@sudobility/seo_lib';
 import { variants } from '@sudobility/design';
 import { isLanguageSupported, CONSTANTS } from './config/constants';
@@ -22,7 +22,6 @@ const SitemapPage = lazy(() => import('./pages/SitemapPage'));
 const WorkspacesPage = lazy(() => import('./pages/WorkspacesPage'));
 const MembersPage = lazy(() => import('./pages/MembersPage'));
 const InvitationsPage = lazy(() => import('./pages/InvitationsPage'));
-const LanguageRedirect = lazy(() => import('./components/layout/LanguageRedirect'));
 const EntityRedirect = lazy(() => import('./components/layout/EntityRedirect'));
 const ProtectedRoute = lazy(() => import('./components/layout/ProtectedRoute'));
 
@@ -73,7 +72,10 @@ function AppRoutes() {
       <ErrorBoundary>
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
-            <Route path="/" element={<LanguageRedirect />} />
+            <Route
+              path="/"
+              element={<LanguageRedirect isLanguageSupported={isLanguageSupported} />}
+            />
             <Route
               path="/:lang"
               element={
@@ -164,7 +166,10 @@ function AppRoutes() {
               <Route path="login" element={<LoginPage />} />
               <Route path="*" element={<Navigate to="." replace />} />
             </Route>
-            <Route path="*" element={<LanguageRedirect />} />
+            <Route
+              path="*"
+              element={<LanguageRedirect isLanguageSupported={isLanguageSupported} />}
+            />
           </Routes>
           <PerformancePanelComponent />
         </Suspense>
