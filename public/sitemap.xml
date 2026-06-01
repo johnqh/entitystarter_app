@@ -4,34 +4,10 @@
 
   <url>
     <loc>https://localhost/en</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://localhost/it" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://localhost/ja" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://localhost/ko" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://localhost/pt" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://localhost/ru" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://localhost/sv" />
-    <xhtml:link rel="alternate" hreflang="th" href="https://localhost/th" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://localhost/uk" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://localhost/vi" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://localhost/zh" />
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://localhost/zh-hant" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://localhost/en" />
-  </url>
-  <url>
-    <loc>https://localhost/ar</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -50,11 +26,10 @@
   </url>
   <url>
     <loc>https://localhost/de</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -73,11 +48,10 @@
   </url>
   <url>
     <loc>https://localhost/es</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -96,11 +70,10 @@
   </url>
   <url>
     <loc>https://localhost/fr</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -119,11 +92,10 @@
   </url>
   <url>
     <loc>https://localhost/it</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -142,11 +114,10 @@
   </url>
   <url>
     <loc>https://localhost/ja</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -165,11 +136,10 @@
   </url>
   <url>
     <loc>https://localhost/ko</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -188,11 +158,10 @@
   </url>
   <url>
     <loc>https://localhost/pt</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -211,11 +180,10 @@
   </url>
   <url>
     <loc>https://localhost/ru</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -234,11 +202,10 @@
   </url>
   <url>
     <loc>https://localhost/sv</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -257,11 +224,10 @@
   </url>
   <url>
     <loc>https://localhost/th</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -280,11 +246,10 @@
   </url>
   <url>
     <loc>https://localhost/uk</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -303,11 +268,10 @@
   </url>
   <url>
     <loc>https://localhost/vi</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -326,11 +290,10 @@
   </url>
   <url>
     <loc>https://localhost/zh</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -349,11 +312,10 @@
   </url>
   <url>
     <loc>https://localhost/zh-hant</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr" />
@@ -372,34 +334,10 @@
   </url>
   <url>
     <loc>https://localhost/en/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://localhost/it/docs" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://localhost/ja/docs" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://localhost/ko/docs" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://localhost/pt/docs" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://localhost/ru/docs" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://localhost/sv/docs" />
-    <xhtml:link rel="alternate" hreflang="th" href="https://localhost/th/docs" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://localhost/uk/docs" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://localhost/vi/docs" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://localhost/zh/docs" />
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://localhost/zh-hant/docs" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://localhost/en/docs" />
-  </url>
-  <url>
-    <loc>https://localhost/ar/docs</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -418,11 +356,10 @@
   </url>
   <url>
     <loc>https://localhost/de/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -441,11 +378,10 @@
   </url>
   <url>
     <loc>https://localhost/es/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -464,11 +400,10 @@
   </url>
   <url>
     <loc>https://localhost/fr/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -487,11 +422,10 @@
   </url>
   <url>
     <loc>https://localhost/it/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -510,11 +444,10 @@
   </url>
   <url>
     <loc>https://localhost/ja/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -533,11 +466,10 @@
   </url>
   <url>
     <loc>https://localhost/ko/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -556,11 +488,10 @@
   </url>
   <url>
     <loc>https://localhost/pt/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -579,11 +510,10 @@
   </url>
   <url>
     <loc>https://localhost/ru/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -602,11 +532,10 @@
   </url>
   <url>
     <loc>https://localhost/sv/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -625,11 +554,10 @@
   </url>
   <url>
     <loc>https://localhost/th/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -648,11 +576,10 @@
   </url>
   <url>
     <loc>https://localhost/uk/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -671,11 +598,10 @@
   </url>
   <url>
     <loc>https://localhost/vi/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -694,11 +620,10 @@
   </url>
   <url>
     <loc>https://localhost/zh/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />
@@ -717,11 +642,10 @@
   </url>
   <url>
     <loc>https://localhost/zh-hant/docs</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://localhost/en/docs" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://localhost/ar/docs" />
     <xhtml:link rel="alternate" hreflang="de" href="https://localhost/de/docs" />
     <xhtml:link rel="alternate" hreflang="es" href="https://localhost/es/docs" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://localhost/fr/docs" />

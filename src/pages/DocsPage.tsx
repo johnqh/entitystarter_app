@@ -45,7 +45,7 @@ const DOCS_CONTENT: Record<string, { title: string; content: string }> = {
   starter_app: {
     title: 'starter_app',
     content:
-      'React 19 web application built with Vite and Tailwind CSS. Features i18n support for 16 languages, Firebase authentication, and pages for browsing histories, documentation, and settings. Uses @sudobility/building_blocks for the top bar, login, and settings components.',
+      'React 19 web application built with Vite and Tailwind CSS. Features i18n support for 15 languages, Firebase authentication, and pages for browsing histories, documentation, and settings. Uses @sudobility/building_blocks for the top bar, login, and settings components.',
   },
   starter_app_rn: {
     title: 'starter_app_rn',
