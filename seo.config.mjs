@@ -31,7 +31,7 @@ export default {
     'zh-hant': 'zh-Hant',
   },
 
-  primaryDomain: 'localhost',
+  primaryDomain: process.env.VITE_APP_DOMAIN || 'localhost',
   appName: APP_NAME,
   appDomain: process.env.VITE_APP_DOMAIN || 'localhost',
   robotsDisallowPaths: ['/*/dashboard/', '/*/login'],
