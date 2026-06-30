@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MasterDetailLayout } from '@sudobility/components';
-import { ui } from '@sudobility/design';
+import { ui, colors } from '@sudobility/design';
 import { useSetPageConfig } from '../hooks/usePageConfig';
 import { SEOHead } from '@sudobility/seo_lib';
 import { analyticsService } from '../config/analytics';
@@ -90,7 +90,7 @@ export default function DocsPage() {
             }}
             className={`w-full text-left px-3 py-2 rounded-md text-sm ${ui.transition.default} ${
               activeSection === section.id
-                ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 font-medium'
+                ? `${colors.component.badge.primary.base} ${colors.component.badge.primary.dark} font-medium`
                 : 'text-theme-text-secondary hover:bg-theme-hover-bg'
             }`}
           >

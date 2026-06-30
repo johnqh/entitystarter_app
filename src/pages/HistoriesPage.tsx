@@ -134,7 +134,7 @@ export default function HistoriesPage() {
         </div>
         <div className="p-4 rounded-lg border border-theme-border">
           <p className="text-sm text-theme-text-tertiary">{t('histories.percentage')}</p>
-          <p className="text-2xl font-bold text-blue-600">{percentage.toFixed(1)}%</p>
+          <p className="text-2xl font-bold text-theme-text-primary">{percentage.toFixed(1)}%</p>
         </div>
       </div>
 
