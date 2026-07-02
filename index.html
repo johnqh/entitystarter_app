@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Do it</title>
     <meta name="description" content="Do it by Sudobility Inc" />
-    <link rel="canonical" href="https://doit.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Do it" />
     <meta property="og:title" content="Do it" />
     <meta property="og:description" content="Do it by Sudobility Inc" />
-    <meta property="og:url" content="https://doit.com/" />
+    <!-- No og:url / canonical / hreflang here: those are PAGE-SPECIFIC, but this
+         shell is shared by every route. They are supplied per-route by
+         generate-seo-assets (build) and by functions/_middleware.js
+         (request-time snapshot injection). -->
     <meta property="og:image" content="https://doit.com/og-image.png" />
 
     <!-- Twitter Card -->
