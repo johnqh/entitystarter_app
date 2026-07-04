@@ -46,10 +46,8 @@ export default function HistoriesPage() {
       <Section spacing="xl">
         <SEOHead title={t('histories.title')} description="" noIndex />
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-theme-text-primary mb-4">
-            {t('histories.title')}
-          </h1>
-          <p className="text-theme-text-secondary mb-6">{t('histories.loginPrompt')}</p>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t('histories.title')}</h1>
+          <p className="text-muted-foreground mb-6">{t('histories.loginPrompt')}</p>
           <LocalizedLink to="/login" className={`px-6 py-3 rounded-lg ${buttonVariant('primary')}`}>
             {t('nav.login')}
           </LocalizedLink>
@@ -103,7 +101,7 @@ export default function HistoriesPage() {
     <Section spacing="md">
       <SEOHead title={t('histories.title')} description="" noIndex />
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-theme-text-primary">{t('histories.title')}</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('histories.title')}</h1>
         <button
           onClick={() => {
             analyticsService.trackButtonClick(showForm ? 'cancel_add_history' : 'add_history');
@@ -124,17 +122,17 @@ export default function HistoriesPage() {
         role="region"
         aria-label="History statistics"
       >
-        <div className="p-4 rounded-lg border border-theme-border">
-          <p className="text-sm text-theme-text-tertiary">{t('histories.yourTotal')}</p>
-          <p className="text-2xl font-bold text-theme-text-primary">{userTotal.toFixed(2)}</p>
+        <div className="p-4 rounded-lg border border-border">
+          <p className="text-sm text-muted-foreground">{t('histories.yourTotal')}</p>
+          <p className="text-2xl font-bold text-foreground">{userTotal.toFixed(2)}</p>
         </div>
-        <div className="p-4 rounded-lg border border-theme-border">
-          <p className="text-sm text-theme-text-tertiary">{t('histories.globalTotal')}</p>
-          <p className="text-2xl font-bold text-theme-text-primary">{total.toFixed(2)}</p>
+        <div className="p-4 rounded-lg border border-border">
+          <p className="text-sm text-muted-foreground">{t('histories.globalTotal')}</p>
+          <p className="text-2xl font-bold text-foreground">{total.toFixed(2)}</p>
         </div>
-        <div className="p-4 rounded-lg border border-theme-border">
-          <p className="text-sm text-theme-text-tertiary">{t('histories.percentage')}</p>
-          <p className="text-2xl font-bold text-theme-text-primary">{percentage.toFixed(1)}%</p>
+        <div className="p-4 rounded-lg border border-border">
+          <p className="text-sm text-muted-foreground">{t('histories.percentage')}</p>
+          <p className="text-2xl font-bold text-foreground">{percentage.toFixed(1)}%</p>
         </div>
       </div>
 
@@ -143,14 +141,14 @@ export default function HistoriesPage() {
         <form
           id="history-form"
           onSubmit={handleSubmit}
-          className="mb-6 p-4 rounded-lg border border-theme-border"
+          className="mb-6 p-4 rounded-lg border border-border"
           aria-label="Create history entry"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label
                 htmlFor="history-datetime"
-                className="block text-sm font-medium text-theme-text-secondary mb-1"
+                className="block text-sm font-medium text-muted-foreground mb-1"
               >
                 {t('histories.datetime')}
               </label>
@@ -159,7 +157,7 @@ export default function HistoriesPage() {
                 type="datetime-local"
                 value={datetime}
                 onChange={e => setDatetime(e.target.value)}
-                className="w-full px-3 py-2 rounded-md border border-theme-border bg-theme-bg-primary text-theme-text-primary"
+                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground"
                 required
                 aria-required="true"
               />
@@ -167,7 +165,7 @@ export default function HistoriesPage() {
             <div>
               <label
                 htmlFor="history-value"
-                className="block text-sm font-medium text-theme-text-secondary mb-1"
+                className="block text-sm font-medium text-muted-foreground mb-1"
               >
                 {t('histories.value')}
               </label>
@@ -178,7 +176,7 @@ export default function HistoriesPage() {
                 min="0.01"
                 value={value}
                 onChange={e => setValue(e.target.value)}
-                className="w-full px-3 py-2 rounded-md border border-theme-border bg-theme-bg-primary text-theme-text-primary"
+                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground"
                 required
                 aria-required="true"
               />
@@ -218,21 +216,21 @@ export default function HistoriesPage() {
 
       {/* Histories List */}
       {histories.length === 0 && !isLoading ? (
-        <p className="text-center text-theme-text-tertiary py-8">{t('histories.empty')}</p>
+        <p className="text-center text-muted-foreground py-8">{t('histories.empty')}</p>
       ) : (
         <div className="space-y-2" role="list" aria-label="History entries">
           {histories.map(history => (
             <LocalizedLink
               key={history.id}
               to={`/dashboard/${entitySlug}/histories/${history.id}`}
-              className={`block p-4 rounded-lg border border-theme-border hover:bg-theme-hover-bg ${ui.transition.default}`}
+              className={`block p-4 rounded-lg border border-border hover:bg-accent ${ui.transition.default}`}
               role="listitem"
             >
               <div className="flex justify-between items-center">
-                <span className="text-theme-text-secondary text-sm">
+                <span className="text-muted-foreground text-sm">
                   {formatDateTime(history.datetime, i18n.language)}
                 </span>
-                <span className="text-lg font-semibold text-theme-text-primary">
+                <span className="text-lg font-semibold text-foreground">
                   {history.value.toFixed(2)}
                 </span>
               </div>

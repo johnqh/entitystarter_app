@@ -28,7 +28,7 @@ function EntityRedirect() {
   }, [currentEntity, isLoading, isInitialized, navigate, lang, searchParams]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-theme-bg-primary">
+    <div className="min-h-screen flex items-center justify-center bg-background">
       <div role="status" aria-label="Loading" className={variants.loading.spinner.default()} />
     </div>
   );

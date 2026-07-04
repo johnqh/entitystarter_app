@@ -40,13 +40,11 @@ export default function SitemapPage() {
   return (
     <Section spacing="md">
       <SEOHead title={seoTitle} description={seoDescription} keywords={seoKeywords} />
-      <h1 className="text-2xl font-bold text-theme-text-primary mb-8">{t('nav.sitemap')}</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-8">{t('nav.sitemap')}</h1>
 
       {/* Languages */}
       <div className="mb-12">
-        <h2 className="text-lg font-semibold text-theme-text-primary mb-4">
-          {t('sitemap.languages')}
-        </h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">{t('sitemap.languages')}</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {SUPPORTED_LANGUAGES.map(code => {
             const info = LANGUAGE_INFO[code];
@@ -54,10 +52,10 @@ export default function SitemapPage() {
               <a
                 key={code}
                 href={`/${code}`}
-                className="flex items-center gap-2 px-3 py-2 rounded-md border border-theme-border hover:bg-theme-hover-bg text-sm"
+                className="flex items-center gap-2 px-3 py-2 rounded-md border border-border hover:bg-accent text-sm"
               >
                 <span>{info?.flag}</span>
-                <span className="text-theme-text-secondary">{info?.label}</span>
+                <span className="text-muted-foreground">{info?.label}</span>
               </a>
             );
           })}
@@ -66,9 +64,7 @@ export default function SitemapPage() {
 
       {/* Main Pages */}
       <div className="mb-8">
-        <h2 className="text-lg font-semibold text-theme-text-primary mb-4">
-          {t('sitemap.mainPages')}
-        </h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">{t('sitemap.mainPages')}</h2>
         <ul className="space-y-2">
           <li>
             <LocalizedLink to="/" className={ui.text.linkSubtle}>

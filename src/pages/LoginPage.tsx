@@ -39,7 +39,7 @@ export default function LoginPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-theme-bg-primary">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <SEOHead title={t('seo.login.title')} description={t('seo.login.description')} noIndex />
         <div
           role="status"
@@ -52,7 +52,7 @@ export default function LoginPage() {
 
   if (!auth) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-theme-bg-primary">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <SEOHead title={t('seo.login.title')} description={t('seo.login.description')} noIndex />
         <p role="alert" className={ui.text.error}>
           Firebase not configured

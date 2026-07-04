@@ -57,7 +57,7 @@ export default function HistoryDetailPage() {
       <Section spacing="xl">
         <SEOHead title={t('histories.detail')} description="" noIndex />
         <div className="text-center">
-          <p className="text-theme-text-secondary">{t('histories.notFound')}</p>
+          <p className="text-muted-foreground">{t('histories.notFound')}</p>
         </div>
       </Section>
     );
@@ -84,7 +84,7 @@ export default function HistoryDetailPage() {
   return (
     <Section spacing="md" maxWidth="lg">
       <SEOHead title={t('histories.detail')} description="" noIndex />
-      <h1 className="text-2xl font-bold text-theme-text-primary mb-6">{t('histories.detail')}</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">{t('histories.detail')}</h1>
 
       {deleteError && (
         <div
@@ -95,21 +95,21 @@ export default function HistoryDetailPage() {
         </div>
       )}
 
-      <div className="p-6 rounded-lg border border-theme-border space-y-4">
+      <div className="p-6 rounded-lg border border-border space-y-4">
         <div>
-          <p className="text-sm text-theme-text-tertiary">{t('histories.datetime')}</p>
-          <p className="text-lg text-theme-text-primary">
+          <p className="text-sm text-muted-foreground">{t('histories.datetime')}</p>
+          <p className="text-lg text-foreground">
             {formatDateTime(history.datetime, i18n.language)}
           </p>
         </div>
         <div>
-          <p className="text-sm text-theme-text-tertiary">{t('histories.value')}</p>
-          <p className="text-2xl font-bold text-theme-text-primary">{history.value.toFixed(2)}</p>
+          <p className="text-sm text-muted-foreground">{t('histories.value')}</p>
+          <p className="text-2xl font-bold text-foreground">{history.value.toFixed(2)}</p>
         </div>
         {history.created_at && (
           <div>
-            <p className="text-sm text-theme-text-tertiary">{t('histories.createdAt')}</p>
-            <p className="text-sm text-theme-text-secondary">
+            <p className="text-sm text-muted-foreground">{t('histories.createdAt')}</p>
+            <p className="text-sm text-muted-foreground">
               {formatDateTime(history.created_at, i18n.language)}
             </p>
           </div>
@@ -118,7 +118,7 @@ export default function HistoryDetailPage() {
       <div className="mt-6 flex gap-4">
         <button
           onClick={() => navigate(`/dashboard/${entitySlug}/histories`)}
-          className="px-4 py-2 border border-theme-border rounded-lg text-theme-text-primary hover:bg-theme-hover-bg text-sm"
+          className="px-4 py-2 border border-border rounded-lg text-foreground hover:bg-accent text-sm"
         >
           {t('common.back')}
         </button>
@@ -138,7 +138,7 @@ export default function HistoryDetailPage() {
             </button>
             <button
               onClick={() => setShowDeleteConfirm(false)}
-              className="px-4 py-2 border border-theme-border rounded-lg text-theme-text-primary hover:bg-theme-hover-bg text-sm"
+              className="px-4 py-2 border border-border rounded-lg text-foreground hover:bg-accent text-sm"
             >
               {t('common.cancel')}
             </button>

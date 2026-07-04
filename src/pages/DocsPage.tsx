@@ -91,7 +91,7 @@ export default function DocsPage() {
             className={`w-full text-left px-3 py-2 rounded-md text-sm ${ui.transition.default} ${
               activeSection === section.id
                 ? `${colors.component.badge.primary.base} ${colors.component.badge.primary.dark} font-medium`
-                : 'text-theme-text-secondary hover:bg-theme-hover-bg'
+                : 'text-muted-foreground hover:bg-accent'
             }`}
           >
             {section.label}
@@ -103,8 +103,8 @@ export default function DocsPage() {
 
   const detailContent = (
     <div id="docs-content" role="tabpanel" aria-label={doc.title}>
-      <h2 className="text-2xl font-semibold text-theme-text-primary mb-4">{doc.title}</h2>
-      <p className="text-theme-text-secondary leading-relaxed">{doc.content}</p>
+      <h2 className="text-2xl font-semibold text-foreground mb-4">{doc.title}</h2>
+      <p className="text-muted-foreground leading-relaxed">{doc.content}</p>
     </div>
   );
 
